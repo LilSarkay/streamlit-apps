@@ -1,60 +1,34 @@
 import streamlit as st
-from streamlit_color_picker import st_color_picker
 
-# Set page config
-define_page_config = st.set_page_config(
-    page_title="Color Mood Picker",
-    page_icon=":rainbow:",
-    layout="wide"
+# Set up the page
+def set_weather_background(weather):
+    if weather == "Sunny":
+        st.markdown('<style>body {background-color: #FFDEAD;}</style>', unsafe_allow_html=true)
+    elif weather == "Rainy":
+        st.markdown('<style>body {background-color: #6495ED;}</style>', unsafe_allow_html=true)
+    elif weather == "Cloudy":
+        st.markdown('<style>body {background-color: #D3D3D3;}</style>', unsafe_allow_html=true)
+    elif weather == "Stormy":
+        st.markdown('<style>body {background-color: #778899;}</style>', unsafe_allow_html=true)
+
+# App title
+st.title("Weather Mood Visualizer")
+
+# Dropdown menu for weather conditions
+weather_option = st.selectbox(
+    "Select a weather condition:",
+    ("Sunny", "Rainy", "Cloudy", "Stormy")
 )
 
-# Custom CSS for unique UI
-define_custom_css = st.markdown(
-    """
-    <style>
-    .stApp {
-        background-image: linear-gradient(to bottom right, #f0f4f8, #d9e4f5);
-        color: #333333;
-    }
-    .color-picker {
-        text-align: center;
-        margin-top: 50px;
-    }
-    .mood-message {
-        font-size: 1.5rem;
-        margin-top: 30px;
-        color: #0d3b66;
-        text-shadow: 1px 1px 2px #ffffff;
-    }
-    </style>
-    """,
-    unsafe_allow_html=true
-)
+# Display emoji based on the weather condition
+if weather_option == "Sunny":
+    st.header("☀️ It's a bright sunny day!")
+elif weather_option == "Rainy":
+    st.header("🌧️ Don't forget your umbrella!")
+elif weather_option == "Cloudy":
+    st.header("☁️ It's a bit gloomy today.")
+elif weather_option == "Stormy":
+    st.header("⛈️ Stay safe from the storm!")
 
-# Function to get mood message
-def get_mood(color):
-    """Returns a mood message based on the selected color."""
-    mood_dict = {
-        "#0000ff": "You feel calm today.",  # Blue
-        "#ff0000": "You're energetic!",   # Red
-        "#00ff00": "You're feeling lively!",  # Green
-        "#ffff00": "You're cheerful!",  # Yellow
-        "#ffa500": "You're feeling inspired!",  # Orange
-        "#800080": "You're in a creative mood!",  # Purple
-    }
-    return mood_dict.get(color, "You're feeling unique today!")
-
-# App layout and elements
-st.title("Color Mood Picker")
-
-# Displaying Color Picker
-with st.container():
-    st.subheader("Pick a Color")
-    selected_color = st_color_picker("Choose a color", "#0000ff", key="color-picker", label_visibility='collapsed')
-    st.write("Selected color:", selected_color)
-
-# Displaying Mood Message
-with st.container():
-    st.subheader("Mood Reflection")
-    mood_message = get_mood(selected_color)
-    st.markdown(f'<div class="mood-message">{mood_message}</div>', unsafe_allow_html=true)
+# Set the background color based on the weather condition
+set_weather_background(weather_option)
