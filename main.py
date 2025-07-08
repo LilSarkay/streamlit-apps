@@ -1,27 +1,22 @@
 import streamlit as st
 import random
 
-# Predefined list of motivational quotes
+# Set the title of the Streamlit app
+st.title('Motivational Quote Generator')
+
+# List of motivational quotes
 quotes = [
-    "Believe you can and you're halfway there.",
-    "Your limitation—it's only your imagination.",
-    "Push yourself, because no one else is going to do it for you.",
-    "Great things never come from comfort zones.",
-    "Dream it. Wish it. Do it.",
-    "Success doesn’t just find you. You have to go out and get it.",
-    "The harder you work for something, the greater you’ll feel when you achieve it.",
-    "Dream bigger. Do bigger.",
-    "Don’t stop when you’re tired. Stop when you’re done.",
-    "Wake up with determination. Go to bed with satisfaction.",
+    "Believe you can and you're halfway there. -Theodore Roosevelt",
+    "Don't watch the clock; do what it does. Keep going. -Sam Levenson",
+    "You are never too old to set another goal or to dream a new dream. -C.S. Lewis",
+    "Success is not final, failure is not fatal: It is the courage to continue that counts. -Winston S. Churchill",
+    "It always seems impossible until it's done. -Nelson Mandela"
 ]
 
-# Streamlit app
-def main():
-    st.title("Random Motivational Quote Generator")
-    
-    if st.button('Get Quote'):
-        quote = random.choice(quotes)
-        st.write(quote)
+# Function to get a random quote
+def get_random_quote():
+    return random.choice(quotes)
 
-if __name__ == "__main__":
-    main()
+# Create a button in the UI to generate a quote
+if st.button('Get Quote'):
+    st.write(get_random_quote())
