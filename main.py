@@ -1,22 +1,27 @@
 import streamlit as st
+import random
 
-st.title("BMI Calculator")
+# Predefined list of motivational quotes
+quotes = [
+    "Believe you can and you're halfway there.",
+    "Your limitation—it's only your imagination.",
+    "Push yourself, because no one else is going to do it for you.",
+    "Great things never come from comfort zones.",
+    "Dream it. Wish it. Do it.",
+    "Success doesn’t just find you. You have to go out and get it.",
+    "The harder you work for something, the greater you’ll feel when you achieve it.",
+    "Dream bigger. Do bigger.",
+    "Don’t stop when you’re tired. Stop when you’re done.",
+    "Wake up with determination. Go to bed with satisfaction.",
+]
 
-# User inputs
-height = st.number_input("Enter your height (in cm):", min_value=50, max_value=250, step=1)
-weight = st.number_input("Enter your weight (in kg):", min_value=10, max_value=300, step=1)
+# Streamlit app
+def main():
+    st.title("Random Motivational Quote Generator")
+    
+    if st.button('Get Quote'):
+        quote = random.choice(quotes)
+        st.write(quote)
 
-# Calculate BMI
-if height and weight:
-    bmi = weight / ((height / 100) ** 2)
-    st.write(f"Your BMI is: **{bmi:.2f}**")
-
-    # Interpret result
-    if bmi < 18.5:
-        st.info("You're underweight.")
-    elif 18.5 <= bmi < 24.9:
-        st.success("You have a healthy weight.")
-    elif 25 <= bmi < 29.9:
-        st.warning("You're overweight.")
-    else:
-        st.error("You are obese.")
+if __name__ == "__main__":
+    main()
