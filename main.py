@@ -1,35 +1,31 @@
 import streamlit as st
 import pandas as pd
 
-# Title for the app
+# Initialize session state to store the expenses if not already initialized
+if 'expenses' not in st.session_state:
+    st.session_state['expenses'] = []
+
 st.title('Daily Expense Tracker')
 
-# Initialize session state for expenses if not already done
-def init():
-    if 'expenses' not in st.session_state:
-        st.session_state['expenses'] = []
+# Input for adding a new expense
+with st.form(key='expense_form', clear_on_submit=true):
+    name = st.text_input('Expense Name')
+    amount = st.number_input('Amount', min_value=0.01, step=0.01)
+    category = st.selectbox('Category', ['Food', 'Transport', 'Utilities', 'Other'])
+    submit_button = st.form_submit_button(label='Add Expense')
 
-# Call the init function to set up session state
-init()
+# Append to session state and DataFrame
+if submit_button and name and amount and category:
+    st.session_state['expenses'].append({'name': name, 'amount': amount, 'category': category})
 
-# Input fields for new expense entry
-expense_name = st.text_input('Expense Name')
-expense_amount = st.number_input('Expense Amount', min_value=0.0, format='%.2f')
-
-# Button to add new expenses to the list
-if st.button('Add Expense'):
-    new_expense = {'name': expense_name, 'amount': expense_amount}
-    st.session_state.expenses.append(new_expense)
-    st.success(f"Added {expense_name} of ${expense_amount}")
-
-# Convert session expenses to DataFrame for display
-expenses_df = pd.DataFrame(st.session_state['expenses'])
-
-# Display the expenses in a table if any exist
-if not expenses_df.empty:
+# Displaying the expenses
+if st.session_state['expenses']:
+    exp_df = pd.DataFrame(st.session_state['expenses'])
     st.subheader('Expenses')
-    st.table(expenses_df)
-    total = expenses_df['amount'].sum()
-    st.markdown(f"**Total Expense:** ${total:.2f}")
+    st.table(exp_df)
+
+    # Calculate and display total
+    total = exp_df['amount'].sum()
+    st.write(f'Total Expenses: ${total:.2f}')
 else:
-    st.info('No expenses added yet.')
+    st.write('No expenses added yet.'}
