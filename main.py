@@ -1,34 +1,35 @@
 import streamlit as st
-
-# Initialize session state for expenses if not already in session state
-if 'expenses' not in st.session_state:
-    st.session_state['expenses'] = []
+import pandas as pd
 
 # Title of the app
 st.title('Daily Expense Tracker')
 
-# Input form for adding new expenses
-with st.form(key='expense_form'):
-    expense = st.text_input(label='Enter expense description')
-    amount = st.number_input(label='Enter expense amount', min_value=0.0, format='%.2f')
-    category = st.selectbox('Select Category', ('Groceries', 'Utilities', 'Entertainment', 'Miscellaneous'))
-    submit_button = st.form_submit_button(label='Add Expense')
+# Initialize session state for expenses
+if 'expenses' not in st.session_state:
+    st.session_state.expenses = []
 
-# Add expense to session state if form is submitted
-if submit_button and expense and amount:
-    st.session_state['expenses'].append({'description': expense, 'amount': amount, 'category': category})
-    st.success(f'Added: {expense} - ${amount} under {category}')
+# Input fields for a new expense
+date = st.date_input('Date')
+description = st.text_input('Description')
+amount = st.number_input('Amount', min_value=0.0, format='%f')
 
-# Display total expenses and breakdown by category
-if st.session_state['expenses']:
-    total = sum(exp['amount'] for exp in st.session_state['expenses'])
-    st.subheader(f'Total Expenses: ${total:.2f}')
+# Button to add the expense
+if st.button('Add Expense'):
+    # Append the new expense to the session state
+    st.session_state.expenses.append({'Date': date, 'Description': description, 'Amount': amount})
+    st.success('Expense added!')
 
-    st.subheader('Breakdown by Category:')
-    for cat in set(exp['category'] for exp in st.session_state['expenses']):
-        cat_total = sum(exp['amount'] for exp in st.session_state['expenses'] if exp['category'] == cat)
-        st.write(f'{cat}: ${cat_total:.2f}')
+# Convert session state expenses into a DataFrame
+expenses_df = pd.DataFrame(st.session_state.expenses)
 
-    # Display all expenses
-    st.subheader('All Expenses:')
-    st.table(st.session_state['expenses'])
+# Display the expenses
+i
+f not expenses_df.empty:
+    st.subheader('Expenses Overview')
+    st.table(expenses_df)
+
+    # Calculate and display total expenses
+total_expense = expenses_df['Amount'].sum()
+    st.subheader(f'Total Expense: ${total_expense:.2f}')
+else:
+    st.info('No expenses added yet.')
