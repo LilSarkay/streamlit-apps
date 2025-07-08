@@ -1,25 +1,18 @@
 import streamlit as st
+import random
 
-def calculate(num1, num2, operation):
-    if operation == 'Add':
-        return num1 + num2
-    elif operation == 'Subtract':
-        return num1 - num2
-    elif operation == 'Multiply':
-        return num1 * num2
-    elif operation == 'Divide':
-        if num2 != 0:
-            return num1 / num2
-        else:
-            return 'Error: Division by zero'
+st.title('Startup Name Generator')
 
-st.title('Simple Calculator')
+st.write('Click the button below to generate a new startup name!')
 
-num1 = st.number_input('Enter the first number:', value=0, format="%.2f")
-num2 = st.number_input('Enter the second number:', value=0, format="%.2f")
+tech_prefixes = ['Hyper', 'Neo', 'Quantum', 'Inno', 'Tech', 'Ultra']
+suffixes = ['Sync', 'Labs', 'Stack', 'Works', 'Dynamics', 'Solutions']
 
-operation = st.selectbox('Choose an operation', ['Add', 'Subtract', 'Multiply', 'Divide'])
+def generate_startup_name():
+    prefix = random.choice(tech_prefixes)
+    suffix = random.choice(suffixes)
+    return f"{prefix}{suffix}"
 
-if st.button('Calculate'):
-    result = calculate(num1, num2, operation)
-    st.write('Result:', result)
+if st.button('Generate Name'):
+    name = generate_startup_name()
+    st.success(f'Your Startup Name: {name}')
