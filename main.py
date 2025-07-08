@@ -1,27 +1,32 @@
 import streamlit as st
 import pandas as pd
 
-# Initialize session state
+# Set up the app
+st.title('Daily Expense Tracker')
+
+# Initialize session state for expenses if it doesn't exist yet
 if 'expenses' not in st.session_state:
     st.session_state['expenses'] = []
 
-st.title('Daily Expense Tracker')
+# Input form for an expense entry
+with st.form('expense_form'):
+    expense_name = st.text_input('Expense Name')
+    amount = st.number_input('Amount', min_value=0.0, format="%0.2f")
+    category = st.selectbox('Category', ['Food', 'Transport', 'Utilities', 'Entertainment', 'Other'])
+    submitted = st.form_submit_button('Add Expense')
 
-# Input fields
-expense_date = st.date_input('Date')
-category = st.selectbox('Category', ['Food', 'Transportation', 'Bills', 'Entertainment', 'Other'])
-amount = st.number_input('Amount', min_value=0.0, format='%0.2f')
+    if submitted:
+        st.session_state.expenses.append({'name': expense_name, 'amount': amount, 'category': category})
+        st.success('Expense Added!')
 
-# Add Expense Button
-if st.button('Add Expense'):
-    st.session_state.expenses.append({'Date': expense_date, 'Category': category, 'Amount': amount})
-
-# Expense Data Display
-if st.session_state.expenses:
-    st.subheader('Expenses')
-    expenses_df = pd.DataFrame(st.session_state.expenses)
+# Display the list of expenses
+st.header('Expenses')
+expenses_df = pd.DataFrame(st.session_state.expenses)
+if not expenses_df.empty:
     st.dataframe(expenses_df)
 
-    # Total Expenditure Calculation
-    total_expenditure = expenses_df['Amount'].sum()
-    st.markdown(f'**Total Expenditure:** ${total_expenditure:.2f}')
+    # Calculate the total expenses
+    total = expenses_df['amount'].sum()
+    st.write(f'Total Spent: ${total:.2f}')
+else:
+    st.write('No expenses added yet.')
