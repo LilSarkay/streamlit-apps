@@ -1,21 +1,19 @@
-__updated__ = "Wed Jul  9 12:28:04 UTC 2025"
 import streamlit as st
 
-st.title("Portfolio: Software Engineer")
+st.title('Portfolio App')
 
-st.header("Bio")
-st.write("Software Engineer with expertise in full-stack development and cloud technologies.")
+# About Section
+st.header('About Me')
+st.write('This is the about section where you can talk about yourself.')
 
-st.header("Skills")
-st.write("Python, JavaScript, React, Node.js, AWS, DevOps")
+# Skills Section
+st.header('Skills')
+st.write('List your skills here.')
 
-st.header("Projects")
-st.write("1. Project A: Developed an innovative solution using AI.")
-st.write("2. Project B: Implemented a scalable microservices architecture.")
+# Projects Section
+st.header('Projects')
+st.write('Showcase your projects here.')
 
-st.header("Contact Info")
-st.write("Email: engineer@example.com")
-
-st.header("Social Media")
-st.write("LinkedIn: linkedin.com/in/engineer")
-st.write("GitHub: github.com/engineer")
+# Contact Section
+st.header('Contact')
+st.write('Provide your contact information here.')
