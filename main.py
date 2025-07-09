@@ -1,26 +1,25 @@
 import streamlit as st
 
-def is_prime(n):
-    """Check if a number is prime."""
-    if n <= 1:
-        return false
-    if n <= 3:
-        return true
-    if n % 2 == 0 or n % 3 == 0:
-        return false
-    i = 5
-    while i * i <= n:
-        if n % i == 0 or n % (i + 2) == 0:
-            return false
-        i += 6
-    return true
+st.title('Simple Calculator')
 
-st.title('Prime Checker')
+# User inputs
+num1 = st.number_input('Enter the first number:', value=0.0)
+num2 = st.number_input('Enter the second number:', value=0.0)
+operation = st.selectbox('Select an operation:', ('Add', 'Subtract', 'Multiply', 'Divide'))
 
-number = st.number_input('Enter a number to check if it is prime:', value=2, min_value=0)
+# Calculate
+calculate = st.button('Calculate')
 
-if st.button('Check'):
-    if is_prime(number):
-        st.success(f'{number} is a prime number!')
-    else:
-        st.error(f'{number} is not a prime number.')
+if calculate:
+    try:
+        if operation == 'Add':
+            result = num1 + num2
+        elif operation == 'Subtract':
+            result = num1 - num2
+        elif operation == 'Multiply':
+            result = num1 * num2
+        elif operation == 'Divide':
+            result = num1 / num2
+        st.success(f'The result is: {result}')
+    except Exception as e:
+        st.error(f'Error: {e}')
