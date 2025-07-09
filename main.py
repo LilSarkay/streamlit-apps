@@ -1,35 +1,43 @@
-# Updated at Wed Jul  9 07:19:42 UTC 2025
 import streamlit as st
 
-# Define a function to perform the calculation
-def calculate(num1, num2, operation):
-    if operation == '+':
-        return num1 + num2
-    elif operation == '-':
-        return num1 - num2
-    elif operation == '*':
-        return num1 * num2
-    elif operation == '/':
-        return num1 / num2 if num2 != 0 else 'Error: Division by zero'
-
-# Set the title of the app
+# App title
 st.title('Simple Calculator')
 
-# Create input fields for the two numbers
+# Initializing session state for result
+def initialize_session_state():
+    if 'result' not in st.session_state:
+        st.session_state['result'] = null
+
+initialize_session_state()
+
+# Input fields for numbers
 num1 = st.number_input('Enter first number', value=0.0)
 num2 = st.number_input('Enter second number', value=0.0)
 
-# Create a dropdown to select the arithmetic operation
-operation = st.selectbox('Select an operation', ('+', '-', '*', '/'))
+# Dropdown for selecting the operation
+operation = st.selectbox('Select an Operation', ('Addition', 'Subtraction', 'Multiplication', 'Division'))
 
-# Initialize session state for result if not present
-if 'result' not in st.session_state:
-    st.session_state.result = null
+# Function to perform the calculation
+def calculate():
+    try:
+        if operation == 'Addition':
+            st.session_state['result'] = num1 + num2
+        elif operation == 'Subtraction':
+            st.session_state['result'] = num1 - num2
+        elif operation == 'Multiplication':
+            st.session_state['result'] = num1 * num2
+        elif operation == 'Division':
+            if num2 == 0:
+                st.session_state['result'] = "Error: Division by zero"
+            else:
+                st.session_state['result'] = num1 / num2
+    except Exception as e:
+        st.session_state['result'] = str(e)
 
-# Create a button to perform the calculation
+# Calculation button
 if st.button('Calculate'):
-    st.session_state.result = calculate(num1, num2, operation)
+    calculate()
 
 # Display the result
-if st.session_state.result is not null:
-    st.write('Result:', st.session_state.result)
+if st.session_state['result'] is not null:
+    st.write('Result:', st.session_state['result'])
