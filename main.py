@@ -1,27 +1,25 @@
 import streamlit as st
 
-# Title of the app
+def calculate(num1, num2, operation):
+    if operation == '+':
+        return num1 + num2
+    elif operation == '-':
+        return num1 - num2
+    elif operation == '*':
+        return num1 * num2
+    elif operation == '/':
+        if num2 != 0:
+            return num1 / num2
+        else:
+            return 'Error: Division by zero'
+
 st.title('Simple Calculator')
 
-# Input numbers
-a = st.number_input('Enter the first number:', min_value=0)
-b = st.number_input('Enter the second number:', min_value=0)
+num1 = st.number_input('Enter first number:', step=1.0)
+num2 = st.number_input('Enter second number:', step=1.0)
 
-# Dropdown for selecting operations
-operation = st.selectbox('Choose an operation:', ('Add', 'Subtract', 'Multiply', 'Divide'))
+operation = st.selectbox('Select operation:', ('+', '-', '*', '/'))
 
-# Calculation logic
-def calculate(a, b, operation):
-    if operation == 'Add':
-        return a + b
-    elif operation == 'Subtract':
-        return a - b
-    elif operation == 'Multiply':
-        return a * b
-    elif operation == 'Divide':
-        return a / b if b != 0 else 'Error: Division by zero'
-
-# Button to perform calculation
 if st.button('Calculate'):
-    result = calculate(a, b, operation)
+    result = calculate(num1, num2, operation)
     st.write('Result:', result)
