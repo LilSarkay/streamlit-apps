@@ -1,4 +1,3 @@
-# .github/workflows/redeploy.yml
 name: Force Streamlit Cloud Redeploy
 
 on:
@@ -8,19 +7,25 @@ on:
     paths:
       - 'main.py'
 
+permissions:
+  contents: write
+
 jobs:
   redeploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repo
+    - name: Checkout repository
       uses: actions/checkout@v3
 
     - name: Update deploy.txt to trigger redeploy
+      env:
+        TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         echo "Updated: $(date)" > deploy.txt
         git config --global user.name "streamlit-agent"
         git config --global user.email "streamlit-agent@example.com"
+        git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
         git add deploy.txt
         git commit -m "Auto-touch deploy.txt to trigger redeploy"
         git push
