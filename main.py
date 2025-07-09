@@ -1,31 +1,27 @@
-__updated__ = "Wed Jul  9 10:49:38 UTC 2025"
+# This is a generated Streamlit portfolio app
+
 import streamlit as st
 
-# Title of the app
-st.title('Daily Planner')
+# Set up the title and layout
+st.set_page_config(page_title='My Portfolio', layout='wide')
 
-# Initialize the session state
-if 'tasks' not in st.session_state:
-    st.session_state['tasks'] = []
+# Header section
+st.title('Welcome to My Portfolio')
 
-# Input for a new task
-task = st.text_input('Enter a task')
+# Introduction
+st.markdown('## About Me')
+st.write('Hello! I am a software engineer with experience in developing ...')
 
-# Add task button
-def add_task():
-    if task:
-        st.session_state.tasks.append(task)
+# Experience section
+st.markdown('## Experience')
+st.write('- Company A: Lead Developer
+- Company B: Software Engineer')
 
-st.button('Add Task', on_click=add_task)
+# Projects section
+st.markdown('## Projects')
+st.write('[Project 1](http://example.com/project1): A web application ...')
+st.write('[Project 2](http://example.com/project2): An open-source library ...')
 
-# Clear all tasks
-def clear_tasks():
-    st.session_state.tasks.clear()
-
-st.button('Clear All', on_click=clear_tasks)
-
-# Display the list of tasks
-if st.session_state.tasks:
-    st.write('Your tasks:')
-    for i, t in enumerate(st.session_state.tasks, 1):
-        st.write(f"{i}. {t}")
+# Contact
+st.markdown('## Contact')
+st.write('Email: example@example.com')
