@@ -1,57 +1,33 @@
-__updated__ = "Wed Jul  9 12:40:31 UTC 2025"
 import streamlit as st
 from PIL import Image
-import requests
-from io import BytesIO
 
-# Function to fetch a random image
-def fetch_random_image():
-    response = requests.get("https://via.placeholder.com/150")
-    return Image.open(BytesIO(response.content))
+# Load a random profile image
+profile_image = Image.open('path_to_random_image.jpg')
 
-# Function to display the software engineer's profile
-def display_profile():
-    st.title("Software Engineer Portfolio")
+# App title and Profile Image
+st.title("John Doe - Software Engineer Portfolio")
+st.image(profile_image, caption='John Doe', use_column_width=true)
 
-    # Profile Image
-    image = fetch_random_image()
-    st.image(image, caption='Profile Image', use_column_width=true)
+# Background
+st.header("Background")
+st.write("John Doe is a seasoned software engineer with a passion for developing innovative programs that expedite the efficiency and effectiveness of organizational success.")
 
-    # Profile Details
-    st.header("John Doe")
-    st.subheader("Background")
-    st.write("""
-    John Doe is a highly skilled software engineer with over 8 years of experience in developing scalable software solutions. 
-    He has a strong passion for coding and leveraging modern technologies to solve complex problems.
-    """)
+# Experience
+st.header("Experience")
+st.write("With over 10 years in the tech industry, John Doe has worked with a wide array of technologies and teams worldwide.")
 
-    st.subheader("Experience")
-    st.write("""
-    - Senior Software Engineer at TechCorp (2019-Present)
-    - Software Developer at Coding Solutions Inc. (2015-2019)
-    """)
+# Skills
+st.header("Skills")
+st.write("- Programming Languages: Python, Java, C++")
+st.write("- Web Technologies: HTML, CSS, JavaScript, React")
+st.write("- Databases: MySQL, PostgreSQL, MongoDB")
+st.write("- Tools & Platforms: AWS, Docker, Jenkins")
 
-    st.subheader("Key Skills")
-    st.write("""
-    - Proficient in Python, JavaScript, and Java.
-    - Expertise in web development frameworks like Django and React.
-    - Strong understanding of cloud services such as AWS and Azure.
-    """)
+# Projects
+st.header("Projects")
+st.write("1. Project A - A cutting-edge platform for real-time data processing.")
+st.write("2. Project B - An AI tool that enhances customer service efficiencies.")
 
-    st.subheader("Projects")
-    st.write("""
-    - Developed an e-commerce platform handling over 1 million users.
-    - Led a team to build a real-time analytics tool for data processing.
-    """)
-
-    st.subheader("Contact Information")
-    st.write("""
-    - Email: johndoe@example.com
-    - LinkedIn: [John Doe LinkedIn](https://www.linkedin.com)
-    """)
-
-def main():
-    display_profile()
-
-if __name__ == "__main__":
-    main()
+# Contact
+st.header("Contact")
+st.write("Email: johndoe@example.com")
