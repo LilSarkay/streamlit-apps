@@ -1,25 +1,18 @@
 import streamlit as st
 
-st.title('Simple Calculator')
+# App title
+st.title('Temperature Converter')
 
-# User inputs
-num1 = st.number_input('Enter the first number:', value=0.0)
-num2 = st.number_input('Enter the second number:', value=0.0)
-operation = st.selectbox('Select an operation:', ('Add', 'Subtract', 'Multiply', 'Divide'))
+# Input: Temperature value
+temperature = st.number_input('Enter temperature:', format='%f')
 
-# Calculate
-calculate = st.button('Calculate')
+# Conversion choice
+conversion = st.selectbox('Convert to:', ('Celsius to Fahrenheit', 'Fahrenheit to Celsius'))
 
-if calculate:
-    try:
-        if operation == 'Add':
-            result = num1 + num2
-        elif operation == 'Subtract':
-            result = num1 - num2
-        elif operation == 'Multiply':
-            result = num1 * num2
-        elif operation == 'Divide':
-            result = num1 / num2
-        st.success(f'The result is: {result}')
-    except Exception as e:
-        st.error(f'Error: {e}')
+# Conversion logic
+if conversion == 'Celsius to Fahrenheit':
+    converted_temp = temperature * 9 / 5 + 32
+    st.write(f'{temperature}° Celsius is equal to {converted_temp:.2f}° Fahrenheit')
+elif conversion == 'Fahrenheit to Celsius':
+    converted_temp = (temperature - 32) * 5 / 9
+    st.write(f'{temperature}° Fahrenheit is equal to {converted_temp:.2f}° Celsius')
