@@ -1,34 +1,55 @@
-__updated__ = "Wed Jul  9 12:40:48 UTC 2025"
 import streamlit as st
-from PIL import Image
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
 
-# Load a random profile image
-profile_image = Image.open('path_to_random_image.jpg')
+# Data Dashboard
+st.title('Data Dashboard')
+df = pd.DataFrame(np.random.randn(100, 5), columns=list('ABCDE'))
+st.line_chart(df)
 
-# App title and Profile Image
-st.title("John Doe - Software Engineer Portfolio")
-st.image(profile_image, caption='John Doe', use_column_width=true)
+# Machine Learning Predictions
+st.title('Machine Learning Predictions')
+X = np.random.rand(100, 1) * 100
+y = X * 0.5 + np.random.normal(0, 10, (100, 1))
+model = LinearRegression()
+model.fit(X, y)
+X_new = np.array([[50]])
+pred = model.predict(X_new)
+st.write(f'Prediction for input 50: {pred[0]}')
 
-# Background
-st.header("Background")
-st.write("John Doe is a seasoned software engineer with a passion for developing innovative programs that expedite the efficiency and effectiveness of organizational success.")
+# Data Exploration
+st.title('Data Exploration')
+st.dataframe(df.describe())
 
-# Experience
-st.header("Experience")
-st.write("With over 10 years in the tech industry, John Doe has worked with a wide array of technologies and teams worldwide.")
+# User Input Forms
+st.title('User Input Form')
+name = st.text_input('Enter your name:')
+if st.button('Submit'):
+    st.write(f'Hello, {name}!')
 
-# Skills
-st.header("Skills")
-st.write("- Programming Languages: Python, Java, C++")
-st.write("- Web Technologies: HTML, CSS, JavaScript, React")
-st.write("- Databases: MySQL, PostgreSQL, MongoDB")
-st.write("- Tools & Platforms: AWS, Docker, Jenkins")
+# Simple Game or Simulator
+st.title('Simple Dice Roll Game')
+dice_roll = st.button('Roll a dice')
+if dice_roll:
+    dice_result = np.random.randint(1, 7)
+    st.write(f'You rolled a {dice_result}!')
 
-# Projects
-st.header("Projects")
-st.write("1. Project A - A cutting-edge platform for real-time data processing.")
-st.write("2. Project B - An AI tool that enhances customer service efficiencies.")
+# Text Processing
+st.title('Text Processing')
+text = st.text_area('Enter text:')
+if st.button('Analyze Text'):
+    st.write(f'Text Length: {len(text)} characters')
 
-# Contact
-st.header("Contact")
-st.write("Email: johndoe@example.com")
+# Financial Analysis
+st.title('Financial Analysis')
+financial_data = {'Prices': np.random.rand(30) * 100}
+st.line_chart(financial_data)
+
+# Geospatial Data
+st.title('Geospatial Data')
+map_data = pd.DataFrame(
+    np.random.randn(100, 2) / [50, 50] + [37.76, -122.4],
+    columns=['lat', 'lon'])
+st.map(map_data)
