@@ -1,18 +1,22 @@
 import streamlit as st
 
-# App title
 st.title('Temperature Converter')
 
-# Input: Temperature value
-temperature = st.number_input('Enter temperature:', format='%f')
+st.write('Convert temperatures between Celsius and Fahrenheit.')
 
-# Conversion choice
-conversion = st.selectbox('Convert to:', ('Celsius to Fahrenheit', 'Fahrenheit to Celsius'))
+# Get user input
+input_temp = st.number_input('Enter temperature')
+option = st.selectbox('Convert to:', ('Celsius', 'Fahrenheit'))
 
 # Conversion logic
-if conversion == 'Celsius to Fahrenheit':
-    converted_temp = temperature * 9 / 5 + 32
-    st.write(f'{temperature}° Celsius is equal to {converted_temp:.2f}° Fahrenheit')
-elif conversion == 'Fahrenheit to Celsius':
-    converted_temp = (temperature - 32) * 5 / 9
-    st.write(f'{temperature}° Fahrenheit is equal to {converted_temp:.2f}° Celsius')
+def convert_temperature(temp, to_scale):
+    if to_scale == 'Celsius':
+        return (temp - 32) * 5.0/9.0
+    elif to_scale == 'Fahrenheit':
+        return (temp * 9.0/5.0) + 32
+
+# Perform conversion
+converted_temp = convert_temperature(input_temp, option)
+
+# Display the result
+st.write('Converted temperature:', converted_temp)
