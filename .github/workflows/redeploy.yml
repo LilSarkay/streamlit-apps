@@ -1,0 +1,26 @@
+# .github/workflows/redeploy.yml
+name: Force Streamlit Cloud Redeploy
+
+on:
+  push:
+    branches:
+      - testrepo
+    paths:
+      - 'main.py'
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Update deploy.txt to trigger redeploy
+      run: |
+        echo "Updated: $(date)" > deploy.txt
+        git config --global user.name "streamlit-agent"
+        git config --global user.email "streamlit-agent@example.com"
+        git add deploy.txt
+        git commit -m "Auto-touch deploy.txt to trigger redeploy"
+        git push
