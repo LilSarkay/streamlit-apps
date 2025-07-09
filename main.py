@@ -1,22 +1,34 @@
 import streamlit as st
 
-st.title('Temperature Converter')
+# Define a function to perform the calculation
+def calculate(num1, num2, operation):
+    if operation == '+':
+        return num1 + num2
+    elif operation == '-':
+        return num1 - num2
+    elif operation == '*':
+        return num1 * num2
+    elif operation == '/':
+        return num1 / num2 if num2 != 0 else 'Error: Division by zero'
 
-st.write('Convert temperatures between Celsius and Fahrenheit.')
+# Set the title of the app
+st.title('Simple Calculator')
 
-# Get user input
-input_temp = st.number_input('Enter temperature')
-option = st.selectbox('Convert to:', ('Celsius', 'Fahrenheit'))
+# Create input fields for the two numbers
+num1 = st.number_input('Enter first number', value=0.0)
+num2 = st.number_input('Enter second number', value=0.0)
 
-# Conversion logic
-def convert_temperature(temp, to_scale):
-    if to_scale == 'Celsius':
-        return (temp - 32) * 5.0/9.0
-    elif to_scale == 'Fahrenheit':
-        return (temp * 9.0/5.0) + 32
+# Create a dropdown to select the arithmetic operation
+operation = st.selectbox('Select an operation', ('+', '-', '*', '/'))
 
-# Perform conversion
-converted_temp = convert_temperature(input_temp, option)
+# Initialize session state for result if not present
+if 'result' not in st.session_state:
+    st.session_state.result = null
+
+# Create a button to perform the calculation
+if st.button('Calculate'):
+    st.session_state.result = calculate(num1, num2, operation)
 
 # Display the result
-st.write('Converted temperature:', converted_temp)
+if st.session_state.result is not null:
+    st.write('Result:', st.session_state.result)
