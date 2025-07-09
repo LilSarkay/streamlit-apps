@@ -18,17 +18,17 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Touch main.py to trigger Streamlit Cloud redeploy
+    - name: Prepend dummy variable to main.py to trigger redeploy
       env:
         TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         ts=$(date)
-        echo "# Updated at $ts" >> temp.txt
-        cat main.py >> temp.txt
-        mv temp.txt main.py
+        echo "__updated__ = \"$ts\"" > updated_main.py
+        cat main.py >> updated_main.py
+        mv updated_main.py main.py
         git config --global user.name "streamlit-agent"
         git config --global user.email "streamlit-agent@example.com"
         git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
         git add main.py
-        git commit -m "Auto-touch main.py to trigger redeploy"
+        git commit -m "Force Streamlit redeploy by updating __updated__"
         git push
