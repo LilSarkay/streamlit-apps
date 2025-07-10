@@ -1,25 +1,26 @@
-__updated__ = "Thu Jul 10 06:16:11 UTC 2025"
-# Streamlit app code for Simple Calculator
-def main():
-    import streamlit as st
-    
-    st.title('Simple Calculator')
-    
-    num1 = st.number_input('Enter first number:')
-    num2 = st.number_input('Enter second number:')
-    
-    operation = st.selectbox('Select operation:', ('Add', 'Subtract', 'Multiply', 'Divide'))
-    
-    if operation == 'Add':
-        result = num1 + num2
-    elif operation == 'Subtract':
-        result = num1 - num2
-    elif operation == 'Multiply':
-        result = num1 * num2
-    elif operation == 'Divide':
-        result = num1 / num2 if num2 != 0 else 'Cannot divide by zero'
-    
-    st.write('Result:', result)
+import streamlit as st
 
-if __name__ == '__main__':
-    main()
+# Simple Calculator App
+def calculate(num1, num2, operation):
+    if operation == 'Add':
+        return num1 + num2
+    elif operation == 'Subtract':
+        return num1 - num2
+    elif operation == 'Multiply':
+        return num1 * num2
+    elif operation == 'Divide':
+        if num2 == 0:
+            return 'Error! Division by zero.'
+        else:
+            return num1 / num2
+
+st.title('Simple Calculator')
+
+num1 = st.number_input('Enter first number:', value=0)
+num2 = st.number_input('Enter second number:', value=0)
+
+operation = st.selectbox('Choose an operation:', ('Add', 'Subtract', 'Multiply', 'Divide'))
+
+if st.button('Calculate'):
+    result = calculate(num1, num2, operation)
+    st.write('Result: ', result)
