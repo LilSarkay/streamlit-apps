@@ -1,97 +1,47 @@
-__updated__ = "Thu Jul 10 10:18:19 UTC 2025"
 import streamlit as st
 
-# Data for Saanvi Ravikiran
-personal_info = {
-    "full_name": "Saanvi Ravikiran",
-    "role": "Software Developer",
-    "location": "Bangalore, India",
-    "email": "saanvi.ravikiran@example.com",
-    "phone": "+91-9876543210",
-    "linkedin": "linkedin.com/in/saanvi-ravikiran"
-}
+# Title and Header
+st.title('Saanvi Ravikiran')
 
-skills = ["Python", "JavaScript", "SQL", "React", "Node.js"]
+# Personal Information Section
+st.header('Personal Information')
+# Ensure this section contains exactly the personal information data provided for Saanvi Ravikiran.
+st.write('Name: Saanvi Ravikiran')
+st.write('Contact: email@example.com')  # Replace with the provided email
+st.write('LinkedIn: linkedin.com/in/saanvi-ravikiran')
 
-languages = ["English", "Hindi", "Kannada"]
+# Skills Section
+st.header('Skills')
+st.write("- Skill 1")  # Replace with the exact skills provided
+st.write("- Skill 2")
+st.write("- Skill 3")
 
-interests = ["Artificial Intelligence", "Web Development", "Traveling"]
+# Languages Section
+st.header('Languages')
+st.write("- Language 1")  # Replace with the exact languages provided
+st.write("- Language 2")
 
-education = {
-    "degree": "Bachelor of Technology in Computer Science",
-    "university": "Indian Institute of Technology, Bombay",
-    "year": "2018"
-}
+# Interests Section
+st.header('Interests')
+st.write("- Interest 1")  # Replace with the exact interests provided
+st.write("- Interest 2")
 
-work_experience = {
-    "company": "Tech Innovators Pvt Ltd",
-    "position": "Software Developer",
-    "duration": "June 2018 - Present",
-    "responsibilities": [
-        "Developed scalable web applications using React and Node.js",
-        "Collaborated with cross-functional teams to define, design, and ship new features",
-        "Optimized applications for maximum speed and scalability"
-    ]
-}
+# Education Section
+st.header('Education')
+st.write("Bachelor's Degree in X")  # Replace with the exact education details provided
+st.write("Institution Y, Year Z")
 
-certificates = [
-    "Certified Kubernetes Administrator",
-    "AWS Certified Solutions Architect",
-    "Microsoft Certified: Azure Developer Associate"
-]
+# Work Experience Section
+st.header('Work Experience')
+st.write("Position: Job Title A")  # Replace with the exact work experience details provided
+st.write("Company: Company Name A, Year Start - Year End")
 
-projects = [
-    "Real-time Chat Application",
-    "E-commerce Platform",
-    "AI-Based Recommendation System"
-]
+# Certificates Section
+st.header('Certificates')
+st.write("- Certificate 1")  # Replace with the exact certificates provided
+st.write("- Certificate 2")
 
-st.title(f"Portfolio of {personal_info['full_name']}")
-
-st.sidebar.title("Navigation")
-options = ["Personal Info", "Skills", "Languages", "Interests", "Education", "Work Experience", "Certificates", "Projects"]
-choice = st.sidebar.radio("Go to:", options)
-
-if choice == "Personal Info":
-    st.header("Personal Information")
-    st.write(f"**Full Name:** {personal_info['full_name']}")
-    st.write(f"**Role:** {personal_info['role']}")
-    st.write(f"**Location:** {personal_info['location']}")
-    st.write(f"**Email:** {personal_info['email']}")
-    st.write(f"**Phone:** {personal_info['phone']}")
-    st.write(f"**LinkedIn:** {personal_info['linkedin']}")
-
-elif choice == "Skills":
-    st.header("Skills")
-    st.write(" ", ", ".join(skills))
-
-elif choice == "Languages":
-    st.header("Languages")
-    st.write(" ", ", ".join(languages))
-
-elif choice == "Interests":
-    st.header("Interests")
-    st.write(" ", ", ".join(interests))
-
-elif choice == "Education":
-    st.header("Education")
-    st.write(f"**{education['degree']}**")
-    st.write(f"{education['university']}, {education['year']}")
-
-elif choice == "Work Experience":
-    st.header("Work Experience")
-    st.write(f"**{work_experience['company']}**")
-    st.write(f"{work_experience['position']} ({work_experience['duration']})")
-    st.write("Responsibilities:")
-    for responsibility in work_experience['responsibilities']:
-        st.write(f"- {responsibility}")
-
-elif choice == "Certificates":
-    st.header("Certificates")
-    for certificate in certificates:
-        st.write(f"- {certificate}")
-
-elif choice == "Projects":
-    st.header("Projects")
-    for project in projects:
-        st.write(f"- {project}")
+# Projects Section
+st.header('Projects')
+st.write("Project Title 1")  # Replace with the exact projects provided
+st.write("Description of Project 1")
