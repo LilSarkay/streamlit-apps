@@ -1,39 +1,46 @@
-__updated__ = "Thu Jul 10 11:50:38 UTC 2025"
 import streamlit as st
 
-st.title("Saanvi Ravikiran's Resume")
+# Sidebar menu options
+menu = ['Education', 'Work Experience', 'Certificates', 'Projects', 'Contact', 'Skills', 'Languages', 'Interests']
+selection = st.sidebar.radio("Navigate", menu)
 
-st.header("Education")
-st.write("**Bachelor of Science in Computer Science** - MIT (2015 - 2019)")
-st.write("GPA: 4.0")
+# Content for each section
+if selection == 'Education':
+    st.title('Education')
+    st.write("- **University of Example**: B.Sc in Example Studies (2015-2019)")
+    st.write("- **Example High School**: High School Diploma (2013-2015)")
 
-st.header("Work Experience")
-st.write("**Data Scientist** at Google (2020 - Present)")
-st.write("- Developed models that increased ad efficiency by 20%.")
-st.write("- Led a team of 5 junior data scientists.")
+elif selection == 'Work Experience':
+    st.title('Work Experience')
+    st.write("- **Software Engineer at TechCorp (2019-Present)**")
+    st.write("  - Developed web applications using Python and JavaScript.")
+    st.write("  - Collaborated with cross-functional teams on various projects.")
 
-st.write("**Machine Learning Intern** at Tesla (2019 - 2020)")
-st.write("- Worked on autonomous driving algorithms.")
+elif selection == 'Certificates':
+    st.title('Certificates')
+    st.write("- **Certified Python Developer**")
+    st.write("- **Project Management Professional (PMP)**")
 
-st.header("Certifications")
-st.write("- Certified TensorFlow Developer")
-st.write("- AWS Certified Solutions Architect")
+elif selection == 'Projects':
+    st.title('Projects')
+    st.write("- **Project A**: Developed an innovative solution to improve process X.")
+    st.write("- **Project B**: Led the team in a successful launch of product Y.")
 
-st.header("Projects")
-st.write("- Automatic Text Summarizer using NLP")
-st.write("- Real-time Sentiment Analysis Dashboard")
+elif selection == 'Contact':
+    st.title('Contact')
+    st.write("Feel free to reach out via LinkedIn or email.")
+    st.write("- LinkedIn: [linkedin.com/in/saanvi-ravikiran](https://linkedin.com/in/saanvi-ravikiran)")
+    st.write("- Email: saanvi@example.com")
 
-st.header("Skills")
-st.write("- Programming: Python, Java, C++")
-st.write("- Data Science: Pandas, NumPy, Scikit-learn")
-st.write("- Machine Learning: TensorFlow, Keras, PyTorch")
+elif selection == 'Skills':
+    st.title('Skills')
+    st.write("- Python, JavaScript, SQL")
+    st.write("- Web Development, Machine Learning")
 
-st.header("Languages")
-st.write("- English: Native proficiency")
-st.write("- Spanish: Professional proficiency")
+elif selection == 'Languages':
+    st.title('Languages')
+    st.write("- English, Hindi, Spanish")
 
-st.header("Interests")
-st.write("- Hiking, Reading, Traveling")
-
-st.header("Contact Information")
-st.write("Email: saanvi.ravikiran@example.com")
+elif selection == 'Interests':
+    st.title('Interests')
+    st.write("- Technology, Music, Traveling")
