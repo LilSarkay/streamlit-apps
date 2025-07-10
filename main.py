@@ -1,29 +1,44 @@
-__updated__ = "Thu Jul 10 08:36:11 UTC 2025"
 import streamlit as st
 
-st.title("Saanvi Ravikiran's Portfolio")
+# Personal Information
+st.title('Saanvi Ravikiran')
+st.subheader('Data Scientist & AI Enthusiast')
 
-st.header("Education")
-st.write("Master of Science in Data Science, XYZ University, 2021")
-st.write("Bachelor of Technology in Computer Science, ABC Institute of Technology, 2019")
+# Contact Information
+st.write('Email: saanvi.ravikiran@example.com')
+st.write('LinkedIn: linkedin.com/in/saanvi_ravikiran')
+st.write('GitHub: github.com/saanviravikiran')
 
-st.header("Work Experience")
-st.write("Data Scientist at TechCorp, June 2021 - Present")
-st.write("Intern at WebSolutions, Jan 2020 - May 2021")
+# Skills
+st.header('Skills')
+st.write('- Python, R, SQL')
+st.write('- Machine Learning, Deep Learning')
+st.write('- Data Visualization, Data Analysis')
 
-st.header("Certifications")
-st.write("Certified Data Scientist, Data Science Institute, 2021")
-st.write("Advanced Machine Learning, Udemy, 2020")
+# Education
+st.header('Education')
+st.subheader('Masters in Data Science')
+st.write('University X, Year - Year')
+st.subheader('Bachelors in Computer Science')
+st.write('University Y, Year - Year')
 
-st.header("Projects")
-st.write("Fraud Detection System")
-st.write("E-commerce Recommendation Engine")
+# Work Experience
+st.header('Work Experience')
+st.subheader('Data Scientist at Company A')
+st.write('Year - Present')
+st.write('Responsibilities include...')
+st.subheader('Analyst at Company B')
+st.write('Year - Year')
+st.write('Responsibilities include...')
 
-st.header("Skills")
-st.write("Python, Machine Learning, Data Analysis, SQL")
+# Certifications
+st.header('Certifications')
+st.write('- Certified Data Scientist')
+st.write('- Professional Machine Learning Engineer')
 
-st.header("Languages")
-st.write("English, Hindi")
-
-st.header("Interests")
-st.write("Traveling, Music, AI Research")
+# Projects
+st.header('Projects')
+st.subheader('Project One Title')
+st.write('Description of project one...')
+st.subheader('Project Two Title')
+st.write('Description of project two...')
