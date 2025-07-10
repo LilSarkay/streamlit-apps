@@ -1,45 +1,71 @@
-__updated__ = "Thu Jul 10 10:02:37 UTC 2025"
 import streamlit as st
 
-# Personal Information
-st.title('Saanvi Ravikiran')
-st.subheader('Data Scientist & AI Enthusiast')
+# Title
+st.title('Saanvi Ravikiran: Portfolio')
 
-# Contact Information
-st.write('Email: saanvi.ravikiran@example.com')
-st.write('LinkedIn: linkedin.com/in/saanvi_ravikiran')
-st.write('GitHub: github.com/saanviravikiran')
+# Sidebar for navigation
+st.sidebar.title('Navigation')
+sections = ['Personal Information', 'Skills', 'Languages', 'Interests', 'Education', 'Work Experience', 'Certificates', 'Projects']
+selection = st.sidebar.radio('Go to', sections)
 
-# Skills
-st.header('Skills')
-st.write('- Python, R, SQL')
-st.write('- Machine Learning, Deep Learning')
-st.write('- Data Visualization, Data Analysis')
+# Resume sections
+def display_personal_information():
+    st.header('Personal Information')
+    st.write('Name: Saanvi Ravikiran')
+    st.write('Email: saanvi@example.com')
+    st.write('LinkedIn: linkedin.com/in/saanviravikiran')
 
-# Education
-st.header('Education')
-st.subheader('Masters in Data Science')
-st.write('University X, Year - Year')
-st.subheader('Bachelors in Computer Science')
-st.write('University Y, Year - Year')
+def display_skills():
+    st.header('Skills')
+    st.write('- Python')
+    st.write('- Data Analysis')
+    st.write('- Machine Learning')
 
-# Work Experience
-st.header('Work Experience')
-st.subheader('Data Scientist at Company A')
-st.write('Year - Present')
-st.write('Responsibilities include...')
-st.subheader('Analyst at Company B')
-st.write('Year - Year')
-st.write('Responsibilities include...')
+def display_languages():
+    st.header('Languages')
+    st.write('English, Hindi, Spanish')
 
-# Certifications
-st.header('Certifications')
-st.write('- Certified Data Scientist')
-st.write('- Professional Machine Learning Engineer')
+def display_interests():
+    st.header('Interests')
+    st.write('Artificial Intelligence, Entrepreneurship, Photography')
 
-# Projects
-st.header('Projects')
-st.subheader('Project One Title')
-st.write('Description of project one...')
-st.subheader('Project Two Title')
-st.write('Description of project two...')
+def display_education():
+    st.header('Education')
+    st.write('Degree: Bachelor of Science in Computer Science')
+    st.write('University: Example University')
+    st.write('Year: 2022')
+
+def display_work_experience():
+    st.header('Work Experience')
+    st.write('Position: Data Analyst')
+    st.write('Company: Tech Solutions Inc.')
+    st.write('Duration: 2022-Present')
+
+def display_certificates():
+    st.header('Certificates')
+    st.write('- Certified Data Scientist')
+    st.write('- Advanced Machine Learning Analyst')
+
+def display_projects():
+    st.header('Projects')
+    st.write('Project Name: Portfolio Builder')
+    st.write('Description: Streamlit-based resume portfolio application')
+    st.write('Duration: 3 Months')
+
+# Handling Navigation
+if selection == 'Personal Information':
+    display_personal_information()
+elif selection == 'Skills':
+    display_skills()
+elif selection == 'Languages':
+    display_languages()
+elif selection == 'Interests':
+    display_interests()
+elif selection == 'Education':
+    display_education()
+elif selection == 'Work Experience':
+    display_work_experience()
+elif selection == 'Certificates':
+    display_certificates()
+elif selection == 'Projects':
+    display_projects()
