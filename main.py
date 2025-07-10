@@ -1,52 +1,38 @@
-__updated__ = "Thu Jul 10 11:47:14 UTC 2025"
 import streamlit as st
 
-# Load resume data
-resume_data = """
-# Saanvi Ravikiran's Resume
+st.title("Saanvi Ravikiran's Resume")
 
-## Contact Information
-- **Email:** saanvi.ravikiran@email.com
-- **Phone:** +123-456-7890
-- **LinkedIn:** [linkedin.com/in/saanviravikiran](https://linkedin.com/in/saanviravikiran)
+st.header("Education")
+st.write("**Bachelor of Science in Computer Science** - MIT (2015 - 2019)")
+st.write("GPA: 4.0")
 
-## Education
-- **Master of Science in Computer Science**
-  - University A, 2021
-  - Thesis: Deep Learning Techniques
-- **Bachelor of Technology in Information Technology**
-  - University B, 2019
+st.header("Work Experience")
+st.write("**Data Scientist** at Google (2020 - Present)")
+st.write("- Developed models that increased ad efficiency by 20%.")
+st.write("- Led a team of 5 junior data scientists.")
 
-## Work Experience
-- **Software Engineer** at Tech Solutions Inc.
-  - Duration: 2021 - Present
-  - Improved software performance by 30%
-  - Led a team of 5 developers
-- **Intern** at Web Develop Inc.
-  - Duration: Summer 2019
+st.write("**Machine Learning Intern** at Tesla (2019 - 2020)")
+st.write("- Worked on autonomous driving algorithms.")
 
-## Certifications
-- Certified Kubernetes Administrator
-- AWS Certified Solutions Architect
+st.header("Certifications")
+st.write("- Certified TensorFlow Developer")
+st.write("- AWS Certified Solutions Architect")
 
-## Projects
-- **Project AI-Learn**: Developed a machine learning model for predicting learning patterns.
-- **Project HealthCare++**: A healthcare app for patient data management.
+st.header("Projects")
+st.write("- Automatic Text Summarizer using NLP")
+st.write("- Real-time Sentiment Analysis Dashboard")
 
-## Skills
-- Programming: Python, Java, C++
-- Web Development: HTML, CSS, JavaScript
-- Tools: Docker, Jenkins, Git
+st.header("Skills")
+st.write("- Programming: Python, Java, C++")
+st.write("- Data Science: Pandas, NumPy, Scikit-learn")
+st.write("- Machine Learning: TensorFlow, Keras, PyTorch")
 
-## Languages
-- English (Professional)
-- Hindi (Native)
+st.header("Languages")
+st.write("- English: Native proficiency")
+st.write("- Spanish: Professional proficiency")
 
-## Interests
-- AI Research
-- Open Source Contributions
+st.header("Interests")
+st.write("- Hiking, Reading, Traveling")
 
-"""
-
-# Display resume data
-st.markdown(resume_data)
+st.header("Contact Information")
+st.write("Email: saanvi.ravikiran@example.com")
