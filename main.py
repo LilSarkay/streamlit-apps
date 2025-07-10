@@ -1,3 +1,4 @@
+__updated__ = "Thu Jul 10 11:09:43 UTC 2025"
 import streamlit as st
 
 # Original resume content without the sidebar
