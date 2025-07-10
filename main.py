@@ -1,27 +1,72 @@
-__updated__ = "Thu Jul 10 06:20:17 UTC 2025"
+# Streamlit app with all features:
 import streamlit as st
 
-# Simple Calculator App
-def calculate(num1, num2, operation):
-    if operation == 'Add':
-        return num1 + num2
-    elif operation == 'Subtract':
-        return num1 - num2
-    elif operation == 'Multiply':
-        return num1 * num2
-    elif operation == 'Divide':
-        if num2 == 0:
-            return 'Error! Division by zero.'
-        else:
-            return num1 / num2
+# Data Dashboards feature
+def data_dashboard():
+    st.sidebar.title('Data Dashboard')
+    st.write('This section includes various data dashboards.')
 
-st.title('Simple Calculator')
+data_dashboard()
 
-num1 = st.number_input('Enter first number:', value=0)
-num2 = st.number_input('Enter second number:', value=0)
+# Machine Learning Models feature
+def ml_models():
+    st.sidebar.title('Machine Learning Models')
+    st.write('This section includes ML models for predictions.')
 
-operation = st.selectbox('Choose an operation:', ('Add', 'Subtract', 'Multiply', 'Divide'))
+ml_models()
 
-if st.button('Calculate'):
-    result = calculate(num1, num2, operation)
-    st.write('Result: ', result)
+# Data Exploration Tools feature
+def data_exploration_tools():
+    st.sidebar.title('Data Exploration')
+    st.write('Tools to explore your data.')
+
+data_exploration_tools()
+
+# Reports and Presentations feature
+def reports_presentations():
+    st.sidebar.title('Reports & Presentations')
+    st.write('Generate insightful reports.')
+
+reports_presentations()
+
+# Image and Video Processing Apps feature
+def image_video_processing():
+    st.sidebar.title('Image & Video Processing')
+    st.write('Process images and videos.')
+
+image_video_processing()
+
+# Natural Language Processing Apps feature
+def nlp_apps():
+    st.sidebar.title('NLP')
+    st.write('Natural Language Processing Features.')
+
+nlp_apps()
+
+# Geospatial Applications feature
+def geospatial_apps():
+    st.sidebar.title('Geospatial Applications')
+    st.write('Interact with maps and geographical data.')
+
+geospatial_apps()
+
+# Educational Tools feature
+def educational_tools():
+    st.sidebar.title('Educational Tools')
+    st.write('Tools and resources for learning.')
+
+educational_tools()
+
+# Financial Market Analysis feature
+def financial_analysis():
+    st.sidebar.title('Market Analysis')
+    st.write('Analyze financial markets.')
+
+financial_analysis()
+
+# Data Entry and Annotation Tools feature
+def data_entry_annotation():
+    st.sidebar.title('Data Entry & Annotation')
+    st.write('Tools for data entry and annotation tasks.')
+
+data_entry_annotation()
