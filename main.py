@@ -1,65 +1,27 @@
-__updated__ = "Thu Jul 10 12:01:59 UTC 2025"
 import streamlit as st
 
-# App Title
-st.title("Saanvi Ravikiran - Resume")
+st.title('Saanvi Kapoor - Portfolio')
 
-# Sidebar for navigation
-st.sidebar.title("Navigation")
-options = ["Introduction", "Education", "Work Experience", "Certificates", "Projects", "Contact", "Skills", "Languages", "Interests"]
-selection = st.sidebar.radio("Go to", options)
+st.header('Profile')
+st.write("Data Analyst with 5 years of experience in data mining, analysis, and visualization.")
 
-# Introduction
-if selection == "Introduction":
-    st.header("Introduction")
-    st.write("Saanvi Ravikiran's Resume")
+st.header('Experience')
+st.write("**Senior Data Analyst** at XYZ Corp, 2020 - Present")
+st.write("- Led a team of 5 in the development of a new analytics tool that increased revenue by 15%.")
+st.write("- Developed dashboards using Python and Tableau.")
 
-# Education Section
-elif selection == "Education":
-    st.header("Education")
-    st.write("**Bachelor of Science in Computer Science**")
-    st.write("XYZ University, City, Country")
-    st.write("Graduated: 2022")
+st.write("**Data Analyst** at ABC Inc, 2018 - 2020")
+st.write("- Analyzed large datasets using Python, SQL.")
+st.write("- Collaborated with cross-functional teams to enhance productivity.")
 
-# Work Experience Section
-elif selection == "Work Experience":
-    st.header("Work Experience")
-    st.write("**Software Engineer Intern**")
-    st.write("ABC Company, City, Country")
-    st.write("Jan 2022 - Dec 2022")
+st.header('Education')
+st.write("**Master of Science in Data Science** from University of Data, 2016 - 2018")
+st.write("**Bachelor of Technology in Computer Science** from Tech Institute, 2012 - 2016")
 
-# Certificates Section
-elif selection == "Certificates":
-    st.header("Certificates")
-    st.write("**Certified Python Developer**")
-    st.write("Certification Authority, Year")
+st.header('Skills')
+st.write("- Programming: Python, R, SQL")
+st.write("- Tools: Tableau, Power BI, Excel")
+st.write("- Other: Data Visualization, Machine Learning, Statistical Analysis")
 
-# Projects Section
-elif selection == "Projects":
-    st.header("Projects")
-    st.write("**Data Analysis Project** - Analyzed sales data to improve business decisions at ABC Company.")
-
-# Contact Section
-elif selection == "Contact":
-    st.header("Contact")
-    st.write("Email: saanvi.ravikiran@email.com")
-    st.write("Phone: +123456789")
-
-# Skills Section
-elif selection == "Skills":
-    st.header("Skills")
-    st.write("- Python")
-    st.write("- Data Analysis")
-    st.write("- Machine Learning")
-
-# Languages Section
-elif selection == "Languages":
-    st.header("Languages")
-    st.write("- English")
-    st.write("- Hindi")
-
-# Interests Section
-elif selection == "Interests":
-    st.header("Interests")
-    st.write("- Reading")
-    st.write("- Traveling")
+st.header('Contact')
+st.write("Email: saanvi.kapoor@email.com")
