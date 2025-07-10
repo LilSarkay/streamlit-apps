@@ -1,55 +1,42 @@
-__updated__ = "Thu Jul 10 11:30:18 UTC 2025"
 import streamlit as st
 
-# Sidebar Navigation
+# Set page title
+st.set_page_config(page_title='Saanvi Ravikiran Resume')
+
+# Sidebar for easy navigation
 st.sidebar.title('Navigation')
-sections = ['Personal Information', 'Education', 'Work Experience', 'Certificates', 'Projects', 'Skills', 'Languages', 'Interests']
-section = st.sidebar.radio('Go to', sections)
+sections = ['Profile', 'Education', 'Work Experience', 'Skills']
+chosen_sections = st.sidebar.radio('Go to', sections)
 
-# Saanvi Ravikiran's Resume Data
-resume_data = {
-    'Personal Information': {
-        'Name': 'Saanvi Ravikiran',
-        'Email': 'saanvi.r@example.com',
-        'LinkedIn': 'linkedin.com/in/saanviravikiran',
-        'Phone': '+1234567890',
-    },
-    'Education': [
-        {'Degree': 'B.Sc. Computer Science', 'Institution': 'XYZ University', 'Year': '2022'},
-    ],
-    'Work Experience': [
-        {'Position': 'Software Developer', 'Company': 'Tech Solutions', 'Year': '2023-Present'},
-    ],
-    'Certificates': [
-        'Certified Python Developer',
-    ],
-    'Projects': [
-        'Automated Report Generator',
-    ],
-    'Skills': [
-        'Python', 'Data Analysis', 'Machine Learning'
-    ],
-    'Languages': [
-        'English', 'Spanish'
-    ],
-    'Interests': [
-        'Hiking', 'Photography'
-    ]
-}
+# Placeholder for personal information
+if chosen_sections == 'Profile':
+    st.title('Saanvi Ravikiran')
+    st.image('profile_photo.png', width=150)
+    st.write('Contact: saanvi.ravikiran@example.com')
+    st.write('Location: Hyderabad, India')
 
-def display_section(section):
-    st.header(section)
-    items = resume_data.get(section, [])
-    if isinstance(items, dict):
-        for key, value in items.items():
-            st.write(f"**{key}:** {value}")
-    elif isinstance(items, list):
-        for item in items:
-            if isinstance(item, dict):
-                st.subheader(" ")
-                for key, value in item.items():
-                    st.write(f"**{key}:** {value}")
-            else:
-                st.write(f"- {item}")
+# Education section
+elif chosen_sections == 'Education':
+    st.header('Education')
+    st.write('**Masters of Science in Computer Science**')
+    st.write('University of Hyderabad, 2020-2022')
+    st.write('**Bachelors of Technology in Information Technology**')
+    st.write('Vellore Institute of Technology, 2016-2020')
 
-display_section(section)
+# Work Experience section
+elif chosen_sections == 'Work Experience':
+    st.header('Work Experience')
+    st.write('**Data Scientist at XYZ Corp**')
+    st.write('June 2022 - Present')
+    st.write('Working on machine learning models and data analysis')
+    st.write('**Intern Data Analyst at ABC Pvt. Ltd**')
+    st.write('Jan 2020 - May 2022')
+    st.write('Involved in data cleaning and visualization projects')
+
+# Skills section
+elif chosen_sections == 'Skills':
+    st.header('Skills')
+    st.write('- Python Programming')
+    st.write('- Machine Learning')
+    st.write('- Data Analytics')
+    st.write('- Visualization using Matplotlib and Seaborn')
