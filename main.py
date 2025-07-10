@@ -1,44 +1,51 @@
-__updated__ = "Thu Jul 10 11:37:05 UTC 2025"
 import streamlit as st
 
-# Saanvi Ravikiran's Resume App
+# Set page configuration
+st.set_page_config(page_title='Saanvi Ravikiran - Resume', layout='centered')
+
+# Sidebar navigation
+def sidebar_navigation():
+    st.sidebar.title('Navigation')
+    options = ['Home', 'Education', 'Work Experience', 'Projects', 'Skills']
+    choice = st.sidebar.radio('Go to', options)
+    return choice
+
+# Resume sections
+def display_home():
+    st.title('Saanvi Ravikiran')
+    st.write('Welcome to my interactive resume!')
+    st.image('https://example.com/path_to_profile_picture.jpg', caption='Saanvi Ravikiran')
+
+def display_education():
+    st.header('Education')
+    st.write('Details about Saanvi's educational background.')
+
+def display_work_experience():
+    st.header('Work Experience')
+    st.write('Details about Saanvi's work experience.')
+
+def display_projects():
+    st.header('Projects')
+    st.write('Details about projects that Saanvi has worked on.')
+
+def display_skills():
+    st.header('Skills')
+    st.write('Details about Saanvi's skills.')
+
+# Main application logic
 def main():
-    st.title("Saanvi Ravikiran's Resume")
+    choice = sidebar_navigation()
 
-    # Profile Image
-    image_url = "https://via.placeholder.com/150"
-    st.image(image_url, caption='Saanvi Ravikiran', use_column_width=true)
+    if choice == 'Home':
+        display_home()
+    elif choice == 'Education':
+        display_education()
+    elif choice == 'Work Experience':
+        display_work_experience()
+    elif choice == 'Projects':
+        display_projects()
+    elif choice == 'Skills':
+        display_skills()
 
-    # Personal Information
-    st.header("Personal Information")
-    st.write("**Name:** Saanvi Ravikiran")
-    st.write("**Location:** New York, NY")
-    st.write("**Email:** saanvi.ravikiran@example.com")
-
-    # Professional Summary
-    st.header("Professional Summary")
-    st.write("Dedicated and efficient full stack developer with 5+ years experience in application layers, presentation layers, and databases. Certified in both frontend and backend technologies.")
-
-    # Skills
-    st.header("Skills")
-    st.write("- Programming Languages: Python, JavaScript, SQL")
-    st.write("- Frameworks: React, Node.js, Django")
-    st.write("- Tools: Git, Docker, Jenkins")
-    st.write("- Soft Skills: Problem-solving, Communication, Teamwork")
-
-    # Experience
-    st.header("Experience")
-    st.subheader("Full Stack Developer at Tech Solutions Inc.")
-    st.write("**Location:** San Francisco, CA")
-    st.write("**Duration:** Jan 2018 - Present")
-    st.write("- Developed new features and improved existing ones in the company's leading SaaS product.")
-    st.write("- Collaborated with a distributed team to integrate machine learning models into the web services.")
-
-    # Education
-    st.header("Education")
-    st.subheader("Bachelor of Technology in Computer Science")
-    st.write("**University:** National Institute of Technology")
-    st.write("**Graduation Year:** 2017")
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
