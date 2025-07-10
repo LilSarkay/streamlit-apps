@@ -1,60 +1,52 @@
-__updated__ = "Thu Jul 10 10:51:43 UTC 2025"
 import streamlit as st
 
-# Streamlit App Title
-title = "Saanvi Ravikiran's Resume"
-st.set_page_config(page_title=title)
-st.title(title)
+# Title and contact information
+st.title("Saanvi Ravikiran's Resume")
+st.write("Email: saanvi.ravikiran@gmail.com")
+st.write("Phone: 9019525675")
+st.write("LinkedIn: [linkedin.com/in/saanvi-ravikiran-8b6b791b4](https://linkedin.com/in/saanvi-ravikiran-8b6b791b4)")
 
-# Sidebar Navigation
-pages = {
-    "Overview": "Overview",
-    "Skills": "Skills",
-    "Education & Courses": "Education & Courses",
-    "Work Experience": "Work Experience",
-    "Certificates & Projects": "Certificates & Projects"
-}
-selection = st.sidebar.radio("Navigation", list(pages.keys()))
+# Summary
+st.header("Summary")
+st.write("Turning complex datasets into actionable insights and balancing technical acumen with business intuition to support data-driven decisions. Eager to contribute to a dynamic data analytics team.")
 
-# Data
-resume_data = {
-    "Name": "Saanvi Ravikiran",
-    "Email": "saanvi.ravikiran@gmail.com",
-    "Phone": "9019525675",
-    "LinkedIn": "linkedin.com/in/saanvi-ravikiran-8b6b791b4",
-    "Skills": [
-        "Exploratory Data Analysis (EDA)", "Machine Learning", "Generative AI",
-        "Neural Networks", "Python", "C++", "Java", "Hadoop", "SQL", "Excel",
-        "Financial analysis", "Ethical hacking", "Digital marketing"
-    ],
-    "Education": "B-Tech in Data Science and Engineering from Manipal Institute of Technology (06/2022 - 06/2026)",
-    "Courses": "AI and Big Data Analytics",
-    "Work Experience": "Financial Analyst at PropertyVerse (11/2023 - 01/2024)",
-    "Certificates & Projects": ["Ethical Hacking Essentials", "Aeturnum project"]
-}
+# Skills
+st.header("Skills")
+st.write("- Exploratory Data analysis (EDA)")
+st.write("- Machine Learning, Generative AI, Neural Networks")
+st.write("- Python, C++, Java, Hadoop, SQL, Excel")
+st.write("- Financial analysis, Ethical hacking, Digital marketing")
 
-# Conditional display based on sidebar selection
-if selection == "Overview":
-    st.header("Contact Information")
-    st.write(f"**Name:** {resume_data['Name']}")
-    st.write(f"**Email:** {resume_data['Email']}")
-    st.write(f"**Phone:** {resume_data['Phone']}")
-    st.write(f"**LinkedIn:** {resume_data['LinkedIn']}")
+# Languages
+st.header("Languages")
+st.write("English: Full Professional Proficiency")
+st.write("Hindi: Full Professional Proficiency")
+st.write("Kannada: Native or Bilingual Proficiency")
 
-if selection == "Skills":
-    st.header("Skills")
-    st.write(" , ".join(resume_data['Skills']))
+# Interests
+st.header("Interests")
+st.write("Deep Neural Networks, Cognitive Technology, Distance running, music, Neuromarketing, Finance, Real estate")
 
-if selection == "Education & Courses":
-    st.header("Education")
-    st.write(resume_data['Education'])
-    st.header("Courses")
-    st.write(resume_data['Courses'])
+# Education
+st.header("Education")
+st.write("**B-Tech in Data Science and Engineering**")
+st.write("Manipal Institute of Technology, Manipal (06/2022 - 06/2026)")
+st.write("Courses: AI, ML, Big Data, OOP, Predictive modeling, Deep learning techniques, etc.")
 
-if selection == "Work Experience":
-    st.header("Work Experience")
-    st.write(resume_data['Work Experience'])
+# Work Experience
+st.header("Work Experience")
+st.write("**Financial Analyst** at PropertyVerse (11/2023 - 01/2024)")
+st.write("Role: A one-stop-shop for all Real Estate Investments - Fueling Fractional Ownership")
 
-if selection == "Certificates & Projects":
-    st.header("Certificates & Projects")
-    st.write(" , ".join(resume_data['Certificates & Projects']))
+# Certificates
+st.header("Certificates")
+st.write("- Data Science - Mood Indigo, IIT Bombay (06/2024 - 07/2024)")
+st.write("- Ethical Hacking Essentials - EC Council (08/2024 - 09/2024)")
+st.write("- Equity Markets Analyst - Finlatics (06/2023 - 08/2023)")
+st.write("- Investment Banking Analyst - Finlatics (06/2023 - 08/2023)")
+
+# Projects
+st.header("Projects")
+st.write("- Aeturnum: Integrating Behavioral Modeling and Generative AI for Autonomous Cognitive Systems")
+st.write("- Investigating the Influence of Continuance Intention...")
+st.write("- Image-Based Pneumonia Detection and Classification...")
