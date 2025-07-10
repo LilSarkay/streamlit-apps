@@ -1,50 +1,39 @@
-__updated__ = "Thu Jul 10 06:44:47 UTC 2025"
 import streamlit as st
 
-# Main app title
-def main():
-    st.title("Comprehensive Streamlit Feature App")
-    # Example of data dashboard
-    st.write("## Data Dashboard")
-    data = {'Feature': ['A', 'B', 'C'], 'Value': [10, 23, 35]}
-    st.bar_chart(data)
-    # Example of machine learning interface
-    st.write("## Machine Learning Interface")
-    st.file_uploader("Upload your CSV for ML predictions")
-    if st.button("Run Model"):
-        st.write("Model results...")
-    # Example of data analysis tools
-    st.write("## Data Analysis Tools")
-    st.text_area("Enter data for analysis")
-    if st.button("Analyze"):
-        st.write("Analysis results...")
-    # Example of financial tools
-    st.write("## Financial Tools")
-    st.slider("Investment period", 1, 30)
-    st.button("Calculate ROI")
-    # Example of scientific notebooks
-    st.write("## Scientific Notebooks")
-    st.text_input("Experiment name")
-    if st.button("Run Experiment"):
-        st.write("Experiment results...")
-    # Example of geospatial applications
-    st.write("## Geospatial Applications")
-    st.map()
-    # Example of survey apps
-    st.write("## Survey Apps")
-    st.radio("Choose your favourite feature", ['Dashboards', 'ML Interfaces', 'Analysis Tools'])
-    # Example of education tools
-    st.write("## Education Tools")
-    st.selectbox("Choose a subject", ['Math', 'Science', 'History'])
-    # Example of CMS
-    st.write("## Content Management System")
-    st.write("Manage your content here.")
-    # Example of healthcare dashboards
-    st.write("## Healthcare Dashboards")
-    st.number_input("Enter patient data")
-    # Example of gaming interfaces
-    st.write("## Gaming Interfaces")
-    st.button("Start Game")
+# Set up the app title and sidebar
+st.set_page_config(page_title="App Suite", layout="wide")
 
-if __name__ == "__main__":
-    main()
+# Title of the app
+st.title("Welcome to Our App Suite")
+
+# Sidebar navigation
+st.sidebar.title("Navigation")
+options = st.sidebar.radio(
+    'Select a page:',
+    ('Home', 'Contact')
+)
+
+# Home page message
+if options == 'Home':
+    st.header("Home")
+    st.write("Welcome to our application suite where we make it easy to deploy and share data applications!")
+    
+    # New Section: Features Built Using Streamlit
+    st.subheader("Features Built Using Streamlit")
+    st.write("Explore the variety of applications you can build with Streamlit:")
+    st.write("- **Data Dashboards**: Interactive and real-time data visualization tools.")
+    st.write("- **Machine Learning Apps**: Deploy machine learning models easily with interactive interfaces.")
+    st.write("- **Data Analysis Tools**: Powerful analytical dashboards to manipulate and analyze data.")
+    st.write("- **Financial Tools**: Handy financial calculators and stock market prediction apps.")
+    st.write("- **Scientific Notebooks**: Conduct experiments and display results right alongside your code.")
+    st.write("- **Geospatial Applications**: Maps and geospatial data plots at your fingertips.")
+    st.write("- **Survey Apps**: Collect and visualize survey data effortlessly.")
+    st.write("- **Education Tools**: Interactive educational applications and modules.")
+    st.write("- **Content Management Systems**: Simple CMS solutions for managing digital content.")
+    st.write("- **Healthcare Dashboards**: Visualize and share healthcare data securely.")
+    st.write("- **Gaming Interfaces**: Build engaging and interactive game interfaces.")
+    
+# Contact page message
+if options == 'Contact':
+    st.header("Contact")
+    st.write("You can contact us at appdev@example.com")
