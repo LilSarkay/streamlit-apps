@@ -1,26 +1,43 @@
-__updated__ = "Thu Jul 10 10:33:55 UTC 2025"
-# Streamlit code for Saanvi Ravikiran's updated portfolio
+# Streamlit app for Saanvi Ravikiran's Portfolio
 
 import streamlit as st
 
-st.set_page_config(page_title="Saanvi Ravikiran Portfolio", layout="wide")
+# Sidebar for navigation
+st.sidebar.title('Navigation')
+sections = ['Home', 'Education', 'Skills', 'Work Experience', 'Projects']
+selection = st.sidebar.radio('Go to', sections)
 
-st.sidebar.title("Navigation")
-option = st.sidebar.radio("Go to:", ('About Me', 'Projects', 'Contact'))
+# Title
+st.title('Portfolio of Saanvi Ravikiran')
 
-if option == 'About Me':
-    st.title('About Me')
-    st.write("Hello! I'm Saanvi Ravikiran, a passionate Data Scientist with expertise in Machine Learning and Data Analysis.")
-    st.write("With a strong background in statistics and computer science, I have 5 years of experience in developing data-driven solutions.")
-    st.write("I love transforming data into actionable insights and am constantly seeking new opportunities to grow in this ever-evolving field.")
+# Home Section
+if selection == 'Home':
+    st.header('Welcome to my Portfolio App')
+    st.write("Explore the sections to know more about my professional journey and skills.")
 
-elif option == 'Projects':
-    st.title('Projects')
-    st.write("Here are a few projects that I have worked on:")
-    st.markdown("- **Project A:** Developed a predictive model for sales forecasting, which improved accuracy by 20%.")
-    st.markdown("- **Project B:** Created a sentiment analysis tool that achieved 85% accuracy in classifying social media posts.")
-    st.markdown("- **Project C:** Worked on a recommendation system that increased user engagement by 30%.")
+# Education Section
+elif selection == 'Education':
+    st.header('Education')
+    st.subheader('Bachelor of Science in Computer Science')
+    st.write('XYZ University, 2020')
+    st.write('Relevant coursework: Data Structures, Algorithms, AI')
 
-elif option == 'Contact':
-    st.title('Contact')
-    st.write('Feel free to reach out to me via [LinkedIn](https://www.linkedin.com/in/saanviravikiran) or [Email](mailto:saanvi@example.com).')
+# Skills Section
+elif selection == 'Skills':
+    st.header('Skills')
+    st.write('Programming Languages: Python, Java, C++')
+    st.write('Web Development: HTML, CSS, JavaScript, React')
+    st.write('Data Science: Pandas, Numpy, Scikit-learn')
+
+# Work Experience Section
+elif selection == 'Work Experience':
+    st.header('Work Experience')
+    st.subheader('Software Developer at ABC Corp.')
+    st.write('2021 - Present')
+    st.write('Responsibilities include developing scalable software solutions.')
+
+# Projects Section
+elif selection == 'Projects':
+    st.header('Projects')
+    st.subheader('Portfolio Website')
+    st.write('Developed a personal portfolio website using React and hosted on GitHub Pages.')
