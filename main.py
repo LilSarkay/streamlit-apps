@@ -1,28 +1,34 @@
-__updated__ = "Thu Jul 10 12:05:08 UTC 2025"
 import streamlit as st
 
-st.title('Saanvi Kapoor - Portfolio')
+def main():
+    st.title("Saanvi's Portfolio")
+    st.write("Welcome to the portfolio app based on Saanvi's resume.")
+    # Here we simulate the resume content structure
+    st.header("Education")
+    st.subheader("Master of Science in Computer Science")
+    st.write("University of Example, 2020")
 
-st.header('Profile')
-st.write("Data Analyst with 5 years of experience in data mining, analysis, and visualization.")
+    st.subheader("Bachelor of Technology in Information Technology")
+    st.write("Institute of Example, 2018")
 
-st.header('Experience')
-st.write("**Senior Data Analyst** at XYZ Corp, 2020 - Present")
-st.write("- Led a team of 5 in the development of a new analytics tool that increased revenue by 15%.")
-st.write("- Developed dashboards using Python and Tableau.")
+    st.header("Experience")
+    st.subheader("Software Developer")
+    st.write("Tech Company Inc. (2020 - Present)")
+    st.write("- Developed multiple back-end services using Python and Django.")
+    st.write("- Collaborated with the front-end team to enhance user interfaces.")
 
-st.write("**Data Analyst** at ABC Inc, 2018 - 2020")
-st.write("- Analyzed large datasets using Python, SQL.")
-st.write("- Collaborated with cross-functional teams to enhance productivity.")
+    st.header("Projects")
+    st.subheader("Portfolio Web Application")
+    st.write("Developed a personal portfolio web app using Streamlit and Python.")
 
-st.header('Education')
-st.write("**Master of Science in Data Science** from University of Data, 2016 - 2018")
-st.write("**Bachelor of Technology in Computer Science** from Tech Institute, 2012 - 2016")
+    st.header("Skills")
+    st.write("Programming Languages: Python, Java, C++")
+    st.write("Web Technologies: Django, Flask, HTML, CSS")
+    st.write("Databases: MySQL, PostgreSQL")
 
-st.header('Skills')
-st.write("- Programming: Python, R, SQL")
-st.write("- Tools: Tableau, Power BI, Excel")
-st.write("- Other: Data Visualization, Machine Learning, Statistical Analysis")
+    st.header("Achievements")
+    st.write("- Dean's List for academic excellence.")
+    st.write("- Led a team to win the State Coding Championship.")
 
-st.header('Contact')
-st.write("Email: saanvi.kapoor@email.com")
+if __name__ == "__main__":
+    main()
