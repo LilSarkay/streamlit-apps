@@ -1,52 +1,26 @@
-__updated__ = "Thu Jul 10 11:38:24 UTC 2025"
 import streamlit as st
 
-# Set page configuration
-st.set_page_config(page_title='Saanvi Ravikiran - Resume', layout='centered')
-
-# Sidebar navigation
-def sidebar_navigation():
-    st.sidebar.title('Navigation')
-    options = ['Home', 'Education', 'Work Experience', 'Projects', 'Skills']
-    choice = st.sidebar.radio('Go to', options)
-    return choice
-
-# Resume sections
-def display_home():
-    st.title('Saanvi Ravikiran')
-    st.write('Welcome to my interactive resume!')
-    st.image('https://example.com/path_to_profile_picture.jpg', caption='Saanvi Ravikiran')
-
-def display_education():
-    st.header('Education')
-    st.write('Details about Saanvi's educational background.')
-
-def display_work_experience():
-    st.header('Work Experience')
-    st.write('Details about Saanvi's work experience.')
-
-def display_projects():
-    st.header('Projects')
-    st.write('Details about projects that Saanvi has worked on.')
-
-def display_skills():
-    st.header('Skills')
-    st.write('Details about Saanvi's skills.')
-
-# Main application logic
 def main():
-    choice = sidebar_navigation()
+    st.title("Saanvi Ravikiran's Resume")
 
-    if choice == 'Home':
-        display_home()
-    elif choice == 'Education':
-        display_education()
-    elif choice == 'Work Experience':
-        display_work_experience()
-    elif choice == 'Projects':
-        display_projects()
-    elif choice == 'Skills':
-        display_skills()
+    st.header("Profile")
+    st.write("An experienced software engineer with a passion for developing innovative programs that expedite the efficiency and effectiveness of organizational success.")
 
-if __name__ == '__main__':
+    st.header("Experience")
+    st.subheader("Software Engineer at Tech Solutions")
+    st.write("Developed numerous applications that streamlined company processes and increased revenue by 15%.")
+
+    st.header("Education")
+    st.subheader("Bachelor of Science in Computer Science")
+    st.write("Graduated with honors from University of Technology.")
+
+    st.header("Skills")
+    st.write("- Programming Languages: Python, Java, C++")
+    st.write("- Web Technologies: HTML, CSS, JavaScript")
+
+    st.header("Projects")
+    st.subheader("Project Management App")
+    st.write("Designed a project management application that supports project planning and execution.")
+
+if __name__ == "__main__":
     main()
