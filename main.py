@@ -1,44 +1,40 @@
-__updated__ = "Thu Jul 10 11:07:58 UTC 2025"
 import streamlit as st
 
-# Sidebar navigation
-st.sidebar.title("Navigation")
-sections = [
-    "Summary",
-    "Skills",
-    "Languages",
-    "Interests",
-    "Education",
-    "Work Experience",
-    "Certificates",
-    "Projects"
-]
-selection = st.sidebar.radio("Go to", sections)
+# Original resume content without the sidebar
 
-# Conditional display based on selection
-if selection == "Summary":
-    st.title("Saanvi Ravikiran")  # Ensure the app title is there
-    st.header("Summary")
-    st.text("Software developer with 5 years of experience in developing scalable applications.")
-elif selection == "Skills":
-    st.header("Skills")
-    st.text("- Python\n- JavaScript\n- SQL\n- Streamlit")
-# Add placeholder content for each section, assuming they exist in the original app.
-elif selection == "Languages":
-    st.header("Languages")
-    st.text("English, Spanish, Mandarin")
-elif selection == "Interests":
-    st.header("Interests")
-    st.text("Artificial Intelligence, Open Source Contribution")
-elif selection == "Education":
-    st.header("Education")
-    st.text("B.S. in Computer Science from XYZ University")
-elif selection == "Work Experience":
-    st.header("Work Experience")
-    st.text("Software Engineer at ABC Corp")
-elif selection == "Certificates":
-    st.header("Certificates")
-    st.text("Certified Kubernetes Administrator")
-elif selection == "Projects":
-    st.header("Projects")
-    st.text("Open Source Contribution to Streamlit Library")
+st.title("Saanvi Ravikiran")
+
+st.subheader("Summary")
+summary = """ Enthusiastic data analyst with a passion for uncovering insights and optimizing processes. """
+st.write(summary)
+
+st.subheader("Experience")
+experience = """ 
+- **Data Analyst**, XYZ Corp (2020-Present)
+  - Developed data models that increased company efficiency by 20%
+- **Intern**, ABC Inc. (2019-2020)
+  - Assisted in the automation of data collection processes
+"""
+st.write(experience)
+
+st.subheader("Education")
+education = """ 
+- M.S. in Data Science, University of Somewhere (2020)
+- B.S. in Statistics, University of Anywhere (2018)
+"""
+st.write(education)
+
+st.subheader("Skills")
+skills = """ 
+- Python, R, SQL
+- Data Visualization
+- Machine Learning
+"""
+st.write(skills)
+
+st.subheader("Contact")
+contact_info = """ 
+- **Email**: saanvi@example.com
+- **LinkedIn**: [linkedin.com/in/saanvi](https://linkedin.com/in/saanvi)
+"""
+st.write(contact_info)
