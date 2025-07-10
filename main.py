@@ -1,53 +1,106 @@
-__updated__ = "Thu Jul 10 10:12:44 UTC 2025"
 import streamlit as st
 
-# Title of the app
-st.title("Saanvi Ravikiran's Portfolio")
+# Sidebar for navigation
+st.sidebar.title("Navigation")
+section = st.sidebar.radio("Go to", ['Personal Information', 'Skills', 'Languages', 'Interests', 'Education', 'Work Experience', 'Certificates', 'Projects'])
 
-# Sidebar with personal information
-st.sidebar.header("Personal Information")
-st.sidebar.write("**Name:** Saanvi Ravikiran")
-st.sidebar.write("**Email:** saanvi.ravi@example.com")
-st.sidebar.write("**Phone:** +1 123 456 7890")  
+# Title of the Portfolio
+st.title("Saanvi Ravikiran - Portfolio")
 
-# Sidebar sections for skills, languages, and interests
-st.sidebar.header("Skills")
-st.sidebar.write("- Python")
-st.sidebar.write("- Streamlit")
-st.sidebar.write("- Data Analysis")
-st.sidebar.write("- Machine Learning")
+# Data
+personal_information = {
+    "Name": "Saanvi Ravikiran",
+    "Email": "saanvi.r@example.com",
+    "Phone": "123-456-7890",
+    "LinkedIn": "linkedin.com/in/saanviravikiran",
+}
 
-st.sidebar.header("Languages")
-st.sidebar.write("- English")
-st.sidebar.write("- Hindi")
+skills = [
+    "Python", "Data Analysis", "Machine Learning", "Deep Learning",
+    "Statistics", "Communication", "Team Collaboration"
+]
 
-st.sidebar.header("Interests")
-st.sidebar.write("- Artificial Intelligence")
-st.sidebar.write("- Traveling")
-st.sidebar.write("- Photography")
+languages = [
+    "English", "Spanish", "French"
+]
 
-# Main content area
-st.header("Education")
-st.write("**Bachelor of Technology in Computer Science**")
-st.write("ABC University, 2016-2020")
-st.write("GPA: 3.8/4.0")
+interests = [
+    "Artificial Intelligence", "Photography", "Traveling", "Reading"
+]
 
-st.header("Work Experience")
-st.subheader("Software Engineer at Tech Solutions")
-st.write("2020 - Present")
-st.write("- Developed numerous machine learning models to improve company products.")
-st.write("- Collaborated with cross-functional teams to enhance product functionality.")
+education = [
+    {
+        "Degree": "Bachelor of Science in Computer Science",
+        "Institution": "University of Somewhere",
+        "Year": "2020"
+    },
+    {
+        "Degree": "Master of Science in Artificial Intelligence",
+        "Institution": "Institute of Advanced Studies",
+        "Year": "2022"
+    }
+]
 
-st.header("Certifications")
-st.write("- Machine Learning by Stanford University through Coursera")
-st.write("- Data Science Professional Certificate by IBM")
+work_experience = [
+    {
+        "Role": "Data Scientist",
+        "Company": "Tech Innovators",
+        "Year": "2020-2023",
+        "Description": "Worked on various machine learning projects and lead a team of junior data scientists."
+    }
+]
 
-st.header("Projects")
-st.subheader("Project A")
-st.write("Developed a full-stack web application using Python and Streamlit.")
+certificates = [
+    "Certified Data Scientist", "AI/ML Specialist"
+]
 
-st.subheader("Project B")
-st.write("Implemented various machine learning algorithms to predict market trends.")
+projects = [
+    {
+        "Project Name": "AI Chatbot",
+        "Description": "Developed an AI-powered chatbot for customer service automation."
+    },
+    {
+        "Project Name": "Image Classification System",
+        "Description": "Implemented a deep learning model for automatic image classification."
+    }
+]
 
-# Corrected f-string at line 67
-st.write("This is a sample text with a number at the end: {number}.".format(number=123))
+# Content Display Based on Navigation
+if section == 'Personal Information':
+    st.header('Personal Information')
+    for key, value in personal_information.items():
+        st.write(f"**{key}:** {value}")
+
+elif section == 'Skills':
+    st.header('Skills')
+    st.write(', '.join(skills))
+
+elif section == 'Languages':
+    st.header('Languages')
+    st.write(', '.join(languages))
+
+elif section == 'Interests':
+    st.header('Interests')
+    st.write(', '.join(interests))
+
+elif section == 'Education':
+    st.header('Education')
+    for edu in education:
+        st.write(f"**{edu['Degree']}** - {edu['Institution']} ({edu['Year']})")
+
+elif section == 'Work Experience':
+    st.header('Work Experience')
+    for exp in work_experience:
+        st.subheader(exp['Role'])
+        st.write(f"{exp['Company']} ({exp['Year']})")
+        st.write(exp['Description'])
+
+elif section == 'Certificates':
+    st.header('Certificates')
+    st.write(', '.join(certificates))
+
+elif section == 'Projects':
+    st.header('Projects')
+    for project in projects:
+        st.subheader(project['Project Name'])
+        st.write(project['Description'])
