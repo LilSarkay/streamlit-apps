@@ -1,67 +1,52 @@
-__updated__ = "Thu Jul 10 10:10:42 UTC 2025"
 import streamlit as st
 
-# Set up the sidebar
-st.sidebar.title("Saanvi Ravikiran's Portfolio")
-section = st.sidebar.radio("Navigate", ['Personal Information', 'Skills', 'Education', 'Work Experience', 'Certificates', 'Projects'])
+# Title of the app
+st.title("Saanvi Ravikiran's Portfolio")
 
-# Define the data for each section
-personal_info = {
-    "Name": "Saanvi Ravikiran",
-    "Email": "saanvi.ravikiran@example.com",
-    "Location": "Hyderabad, India"
-}
+# Sidebar with personal information
+st.sidebar.header("Personal Information")
+st.sidebar.write("**Name:** Saanvi Ravikiran")
+st.sidebar.write("**Email:** saanvi.ravi@example.com")
+st.sidebar.write("**Phone:** +1 123 456 7890")  
 
-skills = [
-    "Python", 
-    "Data Analysis", 
-    "Machine Learning", 
-    "Project Management", 
-    "Communication"
-]
+# Sidebar sections for skills, languages, and interests
+st.sidebar.header("Skills")
+st.sidebar.write("- Python")
+st.sidebar.write("- Streamlit")
+st.sidebar.write("- Data Analysis")
+st.sidebar.write("- Machine Learning")
 
-education = [
-    {"degree": "BSc in Computer Science", "institution": "University of Hyderabad", "year": "2022"}
-]
+st.sidebar.header("Languages")
+st.sidebar.write("- English")
+st.sidebar.write("- Hindi")
 
-work_experience = [
-    {"role": "Data Analyst", "company": "Tech Solutions Inc.", "duration": "Jan 2023 - Present"}
-]
+st.sidebar.header("Interests")
+st.sidebar.write("- Artificial Intelligence")
+st.sidebar.write("- Traveling")
+st.sidebar.write("- Photography")
 
-certificates = [
-    {"title": "Certified Data Professional", "issuer": "Data Institute", "year": "2023"}
-]
+# Main content area
+st.header("Education")
+st.write("**Bachelor of Technology in Computer Science**")
+st.write("ABC University, 2016-2020")
+st.write("GPA: 3.8/4.0")
 
-projects = [
-    {"name": "Customer Segmentation Analysis", "description": "A project focused on segmenting customers using machine learning techniques to enhance marketing strategies."}
-]
+st.header("Work Experience")
+st.subheader("Software Engineer at Tech Solutions")
+st.write("2020 - Present")
+st.write("- Developed numerous machine learning models to improve company products.")
+st.write("- Collaborated with cross-functional teams to enhance product functionality.")
 
-# Display the content based on the selected section
-if section == 'Personal Information':
-    st.write("## Personal Information")
-    for key, value in personal_info.items():
-        st.write(f"**{key}:** {value}")
+st.header("Certifications")
+st.write("- Machine Learning by Stanford University through Coursera")
+st.write("- Data Science Professional Certificate by IBM")
 
-elif section == 'Skills':
-    st.write("## Skills")
-    st.write(", ".join(skills))
+st.header("Projects")
+st.subheader("Project A")
+st.write("Developed a full-stack web application using Python and Streamlit.")
 
-elif section == 'Education':
-    st.write("## Education")
-    for edu in education:
-        st.write(f"**{edu['degree']}**, {edu['institution']} ({edu['year']})")
+st.subheader("Project B")
+st.write("Implemented various machine learning algorithms to predict market trends.")
 
-elif section == 'Work Experience':
-    st.write("## Work Experience")
-    for work in work_experience:
-        st.write(f"**{work['role']}**, {work['company']} ({work['duration']})")
-
-elif section == 'Certificates':
-    st.write("## Certificates")
-    for cert in certificates:
-        st.write(f"**{cert['title']}**, {cert['issuer']} ({cert['year']})")
-
-elif section == 'Projects':
-    st.write("## Projects")
-    for proj in projects:
-        st.write(f"**{proj['name']}**: {proj['description']})
+# Corrected f-string at line 67
+st.write("This is a sample text with a number at the end: {number}.".format(number=123))
