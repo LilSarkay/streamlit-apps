@@ -1,43 +1,43 @@
-__updated__ = "Thu Jul 10 11:33:44 UTC 2025"
 import streamlit as st
 
-# Set page title
-st.set_page_config(page_title='Saanvi Ravikiran Resume')
+# Saanvi Ravikiran's Resume App
+def main():
+    st.title("Saanvi Ravikiran's Resume")
 
-# Sidebar for easy navigation
-st.sidebar.title('Navigation')
-sections = ['Profile', 'Education', 'Work Experience', 'Skills']
-chosen_sections = st.sidebar.radio('Go to', sections)
+    # Profile Image
+    image_url = "https://via.placeholder.com/150"
+    st.image(image_url, caption='Saanvi Ravikiran', use_column_width=true)
 
-# Placeholder for personal information
-if chosen_sections == 'Profile':
-    st.title('Saanvi Ravikiran')
-    st.image('profile_photo.png', width=150)
-    st.write('Contact: saanvi.ravikiran@example.com')
-    st.write('Location: Hyderabad, India')
+    # Personal Information
+    st.header("Personal Information")
+    st.write("**Name:** Saanvi Ravikiran")
+    st.write("**Location:** New York, NY")
+    st.write("**Email:** saanvi.ravikiran@example.com")
 
-# Education section
-elif chosen_sections == 'Education':
-    st.header('Education')
-    st.write('**Masters of Science in Computer Science**')
-    st.write('University of Hyderabad, 2020-2022')
-    st.write('**Bachelors of Technology in Information Technology**')
-    st.write('Vellore Institute of Technology, 2016-2020')
+    # Professional Summary
+    st.header("Professional Summary")
+    st.write("Dedicated and efficient full stack developer with 5+ years experience in application layers, presentation layers, and databases. Certified in both frontend and backend technologies.")
 
-# Work Experience section
-elif chosen_sections == 'Work Experience':
-    st.header('Work Experience')
-    st.write('**Data Scientist at XYZ Corp**')
-    st.write('June 2022 - Present')
-    st.write('Working on machine learning models and data analysis')
-    st.write('**Intern Data Analyst at ABC Pvt. Ltd**')
-    st.write('Jan 2020 - May 2022')
-    st.write('Involved in data cleaning and visualization projects')
+    # Skills
+    st.header("Skills")
+    st.write("- Programming Languages: Python, JavaScript, SQL")
+    st.write("- Frameworks: React, Node.js, Django")
+    st.write("- Tools: Git, Docker, Jenkins")
+    st.write("- Soft Skills: Problem-solving, Communication, Teamwork")
 
-# Skills section
-elif chosen_sections == 'Skills':
-    st.header('Skills')
-    st.write('- Python Programming')
-    st.write('- Machine Learning')
-    st.write('- Data Analytics')
-    st.write('- Visualization using Matplotlib and Seaborn')
+    # Experience
+    st.header("Experience")
+    st.subheader("Full Stack Developer at Tech Solutions Inc.")
+    st.write("**Location:** San Francisco, CA")
+    st.write("**Duration:** Jan 2018 - Present")
+    st.write("- Developed new features and improved existing ones in the company's leading SaaS product.")
+    st.write("- Collaborated with a distributed team to integrate machine learning models into the web services.")
+
+    # Education
+    st.header("Education")
+    st.subheader("Bachelor of Technology in Computer Science")
+    st.write("**University:** National Institute of Technology")
+    st.write("**Graduation Year:** 2017")
+
+if __name__ == "__main__":
+    main()
