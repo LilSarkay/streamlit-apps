@@ -1,72 +1,66 @@
-__updated__ = "Thu Jul 10 10:06:27 UTC 2025"
 import streamlit as st
 
-# Title
-st.title('Saanvi Ravikiran: Portfolio')
+# Set up the sidebar
+st.sidebar.title("Saanvi Ravikiran's Portfolio")
+section = st.sidebar.radio("Navigate", ['Personal Information', 'Skills', 'Education', 'Work Experience', 'Certificates', 'Projects'])
 
-# Sidebar for navigation
-st.sidebar.title('Navigation')
-sections = ['Personal Information', 'Skills', 'Languages', 'Interests', 'Education', 'Work Experience', 'Certificates', 'Projects']
-selection = st.sidebar.radio('Go to', sections)
+# Define the data for each section
+personal_info = {
+    "Name": "Saanvi Ravikiran",
+    "Email": "saanvi.ravikiran@example.com",
+    "Location": "Hyderabad, India"
+}
 
-# Resume sections
-def display_personal_information():
-    st.header('Personal Information')
-    st.write('Name: Saanvi Ravikiran')
-    st.write('Email: saanvi@example.com')
-    st.write('LinkedIn: linkedin.com/in/saanviravikiran')
+skills = [
+    "Python", 
+    "Data Analysis", 
+    "Machine Learning", 
+    "Project Management", 
+    "Communication"
+]
 
-def display_skills():
-    st.header('Skills')
-    st.write('- Python')
-    st.write('- Data Analysis')
-    st.write('- Machine Learning')
+education = [
+    {"degree": "BSc in Computer Science", "institution": "University of Hyderabad", "year": "2022"}
+]
 
-def display_languages():
-    st.header('Languages')
-    st.write('English, Hindi, Spanish')
+work_experience = [
+    {"role": "Data Analyst", "company": "Tech Solutions Inc.", "duration": "Jan 2023 - Present"}
+]
 
-def display_interests():
-    st.header('Interests')
-    st.write('Artificial Intelligence, Entrepreneurship, Photography')
+certificates = [
+    {"title": "Certified Data Professional", "issuer": "Data Institute", "year": "2023"}
+]
 
-def display_education():
-    st.header('Education')
-    st.write('Degree: Bachelor of Science in Computer Science')
-    st.write('University: Example University')
-    st.write('Year: 2022')
+projects = [
+    {"name": "Customer Segmentation Analysis", "description": "A project focused on segmenting customers using machine learning techniques to enhance marketing strategies."}
+]
 
-def display_work_experience():
-    st.header('Work Experience')
-    st.write('Position: Data Analyst')
-    st.write('Company: Tech Solutions Inc.')
-    st.write('Duration: 2022-Present')
+# Display the content based on the selected section
+if section == 'Personal Information':
+    st.write("## Personal Information")
+    for key, value in personal_info.items():
+        st.write(f"**{key}:** {value}")
 
-def display_certificates():
-    st.header('Certificates')
-    st.write('- Certified Data Scientist')
-    st.write('- Advanced Machine Learning Analyst')
+elif section == 'Skills':
+    st.write("## Skills")
+    st.write(", ".join(skills))
 
-def display_projects():
-    st.header('Projects')
-    st.write('Project Name: Portfolio Builder')
-    st.write('Description: Streamlit-based resume portfolio application')
-    st.write('Duration: 3 Months')
+elif section == 'Education':
+    st.write("## Education")
+    for edu in education:
+        st.write(f"**{edu['degree']}**, {edu['institution']} ({edu['year']})")
 
-# Handling Navigation
-if selection == 'Personal Information':
-    display_personal_information()
-elif selection == 'Skills':
-    display_skills()
-elif selection == 'Languages':
-    display_languages()
-elif selection == 'Interests':
-    display_interests()
-elif selection == 'Education':
-    display_education()
-elif selection == 'Work Experience':
-    display_work_experience()
-elif selection == 'Certificates':
-    display_certificates()
-elif selection == 'Projects':
-    display_projects()
+elif section == 'Work Experience':
+    st.write("## Work Experience")
+    for work in work_experience:
+        st.write(f"**{work['role']}**, {work['company']} ({work['duration']})")
+
+elif section == 'Certificates':
+    st.write("## Certificates")
+    for cert in certificates:
+        st.write(f"**{cert['title']}**, {cert['issuer']} ({cert['year']})")
+
+elif section == 'Projects':
+    st.write("## Projects")
+    for proj in projects:
+        st.write(f"**{proj['name']}**: {proj['description']})
