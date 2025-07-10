@@ -1,64 +1,59 @@
-__updated__ = "Thu Jul 10 10:48:49 UTC 2025"
-# Necessary imports
 import streamlit as st
 
-# Define a function to extract data from Saanvi Ravikiran's resume
-# This would simulate parsing or extracting from a resume file
-# Here, we assume a dictionary format for simplicity
+# Streamlit App Title
+title = "Saanvi Ravikiran's Resume"
+st.set_page_config(page_title=title)
+st.title(title)
 
-def get_resume_data():
-    # Example data extracted from a resume
-    data = {
-        "name": "Saanvi Ravikiran",
-        "email": "saanvi.ravikiran@example.com",
-        "summary": "Experienced data scientist with a strong foundation in machine learning, data analytics, and research. Passionate about leveraging data-driven insights to drive strategic decision-making.",
-        "projects": [
-            {
-                "title": "Predictive Analytics on Sales Data",
-                "description": "Developed predictive models to forecast sales trends using machine learning algorithms.",
-                "technologies": ["Python", "scikit-learn", "pandas"]
-            },
-            {
-                "title": "Natural Language Processing for Social Media",
-                "description": "Analyzed and processed large datasets from social media platforms to extract meaningful insights.",
-                "technologies": ["Python", "NLTK", "TensorFlow"]
-            }
-        ],
-        "skills": ["Python", "Machine Learning", "Data Analysis", "NLP", "TensorFlow"],
-        "education": "M.S. in Data Science, University of Example, 2021"
-    }
-    return data
+# Sidebar Navigation
+pages = {
+    "Overview": "Overview",
+    "Skills": "Skills",
+    "Education & Courses": "Education & Courses",
+    "Work Experience": "Work Experience",
+    "Certificates & Projects": "Certificates & Projects"
+}
+selection = st.sidebar.radio("Navigation", list(pages.keys()))
 
+# Data
+resume_data = {
+    "Name": "Saanvi Ravikiran",
+    "Email": "saanvi.ravikiran@gmail.com",
+    "Phone": "9019525675",
+    "LinkedIn": "linkedin.com/in/saanvi-ravikiran-8b6b791b4",
+    "Skills": [
+        "Exploratory Data Analysis (EDA)", "Machine Learning", "Generative AI",
+        "Neural Networks", "Python", "C++", "Java", "Hadoop", "SQL", "Excel",
+        "Financial analysis", "Ethical hacking", "Digital marketing"
+    ],
+    "Education": "B-Tech in Data Science and Engineering from Manipal Institute of Technology (06/2022 - 06/2026)",
+    "Courses": "AI and Big Data Analytics",
+    "Work Experience": "Financial Analyst at PropertyVerse (11/2023 - 01/2024)",
+    "Certificates & Projects": ["Ethical Hacking Essentials", "Aeturnum project"]
+}
 
-def main():
-    st.title("Saanvi Ravikiran's Resume")
-    # Sidebar for navigation
-    st.sidebar.title("Navigation")
-    options = st.sidebar.radio("Go to", ["Summary", "Projects", "Skills", "Education"])
+# Conditional display based on sidebar selection
+if selection == "Overview":
+    st.header("Contact Information")
+    st.write(f"**Name:** {resume_data['Name']}")
+    st.write(f"**Email:** {resume_data['Email']}")
+    st.write(f"**Phone:** {resume_data['Phone']}")
+    st.write(f"**LinkedIn:** {resume_data['LinkedIn']}")
 
-    # Extract resume data
-    resume_data = get_resume_data()
+if selection == "Skills":
+    st.header("Skills")
+    st.write(" , ".join(resume_data['Skills']))
 
-    # Display selected section from the navigation
-    if options == "Summary":
-        st.subheader("Summary")
-        st.write(resume_data["summary"])
+if selection == "Education & Courses":
+    st.header("Education")
+    st.write(resume_data['Education'])
+    st.header("Courses")
+    st.write(resume_data['Courses'])
 
-    elif options == "Projects":
-        st.subheader("Projects")
-        for project in resume_data["projects"]:
-            st.markdown(f"**{project['title']}**")
-            st.write(project['description'])
-            st.text(f"Technologies: {', '.join(project['technologies'])}")
+if selection == "Work Experience":
+    st.header("Work Experience")
+    st.write(resume_data['Work Experience'])
 
-    elif options == "Skills":
-        st.subheader("Skills")
-        st.write(", ".join(resume_data["skills"]))
-
-    elif options == "Education":
-        st.subheader("Education")
-        st.write(resume_data["education"])
-
-
-if __name__ == '__main__':
-    main()
+if selection == "Certificates & Projects":
+    st.header("Certificates & Projects")
+    st.write(" , ".join(resume_data['Certificates & Projects']))
