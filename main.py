@@ -1,47 +1,64 @@
-__updated__ = "Thu Jul 10 11:58:46 UTC 2025"
 import streamlit as st
 
-# Sidebar menu options
-menu = ['Education', 'Work Experience', 'Certificates', 'Projects', 'Contact', 'Skills', 'Languages', 'Interests']
-selection = st.sidebar.radio("Navigate", menu)
+# App Title
+st.title("Saanvi Ravikiran - Resume")
 
-# Content for each section
-if selection == 'Education':
-    st.title('Education')
-    st.write("- **University of Example**: B.Sc in Example Studies (2015-2019)")
-    st.write("- **Example High School**: High School Diploma (2013-2015)")
+# Sidebar for navigation
+st.sidebar.title("Navigation")
+options = ["Introduction", "Education", "Work Experience", "Certificates", "Projects", "Contact", "Skills", "Languages", "Interests"]
+selection = st.sidebar.radio("Go to", options)
 
-elif selection == 'Work Experience':
-    st.title('Work Experience')
-    st.write("- **Software Engineer at TechCorp (2019-Present)**")
-    st.write("  - Developed web applications using Python and JavaScript.")
-    st.write("  - Collaborated with cross-functional teams on various projects.")
+# Introduction
+if selection == "Introduction":
+    st.header("Introduction")
+    st.write("Saanvi Ravikiran's Resume")
 
-elif selection == 'Certificates':
-    st.title('Certificates')
-    st.write("- **Certified Python Developer**")
-    st.write("- **Project Management Professional (PMP)**")
+# Education Section
+elif selection == "Education":
+    st.header("Education")
+    st.write("**Bachelor of Science in Computer Science**")
+    st.write("XYZ University, City, Country")
+    st.write("Graduated: 2022")
 
-elif selection == 'Projects':
-    st.title('Projects')
-    st.write("- **Project A**: Developed an innovative solution to improve process X.")
-    st.write("- **Project B**: Led the team in a successful launch of product Y.")
+# Work Experience Section
+elif selection == "Work Experience":
+    st.header("Work Experience")
+    st.write("**Software Engineer Intern**")
+    st.write("ABC Company, City, Country")
+    st.write("Jan 2022 - Dec 2022")
 
-elif selection == 'Contact':
-    st.title('Contact')
-    st.write("Feel free to reach out via LinkedIn or email.")
-    st.write("- LinkedIn: [linkedin.com/in/saanvi-ravikiran](https://linkedin.com/in/saanvi-ravikiran)")
-    st.write("- Email: saanvi@example.com")
+# Certificates Section
+elif selection == "Certificates":
+    st.header("Certificates")
+    st.write("**Certified Python Developer**")
+    st.write("Certification Authority, Year")
 
-elif selection == 'Skills':
-    st.title('Skills')
-    st.write("- Python, JavaScript, SQL")
-    st.write("- Web Development, Machine Learning")
+# Projects Section
+elif selection == "Projects":
+    st.header("Projects")
+    st.write("**Data Analysis Project** - Analyzed sales data to improve business decisions at ABC Company.")
 
-elif selection == 'Languages':
-    st.title('Languages')
-    st.write("- English, Hindi, Spanish")
+# Contact Section
+elif selection == "Contact":
+    st.header("Contact")
+    st.write("Email: saanvi.ravikiran@email.com")
+    st.write("Phone: +123456789")
 
-elif selection == 'Interests':
-    st.title('Interests')
-    st.write("- Technology, Music, Traveling")
+# Skills Section
+elif selection == "Skills":
+    st.header("Skills")
+    st.write("- Python")
+    st.write("- Data Analysis")
+    st.write("- Machine Learning")
+
+# Languages Section
+elif selection == "Languages":
+    st.header("Languages")
+    st.write("- English")
+    st.write("- Hindi")
+
+# Interests Section
+elif selection == "Interests":
+    st.header("Interests")
+    st.write("- Reading")
+    st.write("- Traveling")
