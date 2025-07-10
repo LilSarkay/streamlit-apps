@@ -1,96 +1,63 @@
-__updated__ = "Thu Jul 10 10:46:22 UTC 2025"
+# Necessary imports
 import streamlit as st
 
-# Basic Information
-name = "Saanvi Ravikiran"
-role = "Data Scientist"
-location = "San Francisco, CA"
+# Define a function to extract data from Saanvi Ravikiran's resume
+# This would simulate parsing or extracting from a resume file
+# Here, we assume a dictionary format for simplicity
 
-# Contact Information
-email = "saanvi.ravikiran@example.com"
-phone = "+1 415 555 0199"
-linkedin = "linkedin.com/in/saanvi-ravikiran"
-
-# Summary
-summary = """
-Data Scientist with over 5 years of experience in applying
-machine learning and data analysis techniques to solve real-world problems.
-Specialized in predictive modeling, data visualization, and Big Data technologies.
-"""
-
-# Skills
-skills = [
-    "Python", "R", "SQL",
-    "Machine Learning", "Deep Learning",
-    "Data Visualization", "Big Data",
-    "Natural Language Processing"
-]
-
-# Experience
-experience = [
-    {
-        "company": "Tech Company A",
-        "role": "Senior Data Scientist",
-        "duration": "Jan 2020 - Present",
-        "details": "Working on predictive analytics and data modeling."
-    },
-    {
-        "company": "Tech Company B",
-        "role": "Data Scientist",
-        "duration": "May 2016 - Dec 2019",
-        "details": "Developed machine learning models for customer analytics."
+def get_resume_data():
+    # Example data extracted from a resume
+    data = {
+        "name": "Saanvi Ravikiran",
+        "email": "saanvi.ravikiran@example.com",
+        "summary": "Experienced data scientist with a strong foundation in machine learning, data analytics, and research. Passionate about leveraging data-driven insights to drive strategic decision-making.",
+        "projects": [
+            {
+                "title": "Predictive Analytics on Sales Data",
+                "description": "Developed predictive models to forecast sales trends using machine learning algorithms.",
+                "technologies": ["Python", "scikit-learn", "pandas"]
+            },
+            {
+                "title": "Natural Language Processing for Social Media",
+                "description": "Analyzed and processed large datasets from social media platforms to extract meaningful insights.",
+                "technologies": ["Python", "NLTK", "TensorFlow"]
+            }
+        ],
+        "skills": ["Python", "Machine Learning", "Data Analysis", "NLP", "TensorFlow"],
+        "education": "M.S. in Data Science, University of Example, 2021"
     }
-]
+    return data
 
-# Education
-education = [
-    {
-        "degree": "M.S. in Data Science",
-        "institute": "University of California, Berkeley",
-        "year": "2016"
-    },
-    {
-        "degree": "B.S. in Computer Science",
-        "institute": "Stanford University",
-        "year": "2014"
-    }
-]
 
-# Building the Streamlit App
-st.title(f"{name}'s Portfolio")
+def main():
+    st.title("Saanvi Ravikiran's Resume")
+    # Sidebar for navigation
+    st.sidebar.title("Navigation")
+    options = st.sidebar.radio("Go to", ["Summary", "Projects", "Skills", "Education"])
 
-# Display Basic Information
-st.header("Basic Information")
-st.write(f"**Role:** {role}")
-st.write(f"**Location:** {location}")
+    # Extract resume data
+    resume_data = get_resume_data()
 
-# Display Contact Information
-st.header("Contact Information")
-st.write(f"**Email:** {email}")
-st.write(f"**Phone:** {phone}")
-st.write(f"**LinkedIn:** {linkedin}")
+    # Display selected section from the navigation
+    if options == "Summary":
+        st.subheader("Summary")
+        st.write(resume_data["summary"])
 
-# Display Summary
-st.header("Summary")
-st.write(summary)
+    elif options == "Projects":
+        st.subheader("Projects")
+        for project in resume_data["projects"]:
+            st.markdown(f"**{project['title']}**")
+            st.write(project['description'])
+            st.text(f"Technologies: {', '.join(project['technologies'])}")
 
-# Display Skills
-st.header("Skills")
-st.write(", ".join(skills))
+    elif options == "Skills":
+        st.subheader("Skills")
+        st.write(", ".join(resume_data["skills"]))
 
-# Display Experience
-st.header("Experience")
-for job in experience:
-    st.subheader(job["company"])
-    st.write(f"**Role:** {job['role']}")
-    st.write(f"**Duration:** {job['duration']}")
-    st.write(f"**Details:** {job['details']}")
-    st.write("")
+    elif options == "Education":
+        st.subheader("Education")
+        st.write(resume_data["education"])
 
-# Display Education
-st.header("Education")
-for edu in education:
-    st.subheader(f"{edu['degree']}")
-    st.write(f"**Institute:** {edu['institute']}")
-    st.write(f"**Year:** {edu['year']}")
-    st.write("")
+
+if __name__ == '__main__':
+    main()
