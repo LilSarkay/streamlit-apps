@@ -1,15 +1,14 @@
-__updated__ = "Thu Jul 10 07:07:15 UTC 2025"
 import streamlit as st
 
-def main():
-    st.title('Color Picker App')
-    
-    # Dropdown for color selection
-    colors = ['Red', 'Blue', 'Green', 'Yellow', 'Black', 'White']
-    selected_color = st.selectbox('Select a color', colors)
-    
-    # Set the background color
-    st.markdown(f"<style>body {{ background-color: {selected_color.lower()}; }}</style>", unsafe_allow_html=true)
+# Define a list of colors
+colors = ['Red', 'Green', 'Blue']
 
-if __name__ == '__main__':
-    main()
+# Select a color
+selected_color = st.selectbox('Choose a color', colors)
+
+# Update the background color based on the selected color
+if selected_color:
+    # Convert the color to lowercase for CSS
+    css_color = selected_color.lower()
+    # Style settings to change background color
+    st.markdown(f'<style>body {{ background-color: {css_color}; }}</style>', unsafe_allow_html=true)
