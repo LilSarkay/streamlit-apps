@@ -2,5 +2,5 @@ fastapi
 uvicorn
 python-dotenv
 requests
-sci-kit learn
+scikit-learn
 streamlit
