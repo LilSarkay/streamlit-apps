@@ -1,3 +1,4 @@
+__updated__ = "Thu Jul 10 11:47:14 UTC 2025"
 import streamlit as st
 
 # Load resume data
