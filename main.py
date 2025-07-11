@@ -1,47 +1,42 @@
-__updated__ = "Fri Jul 11 07:22:44 UTC 2025"
 import streamlit as st
 
-# Set the title of the app
-st.set_page_config(page_title='Saanvi Ravikiran Portfolio')
+# Title
+st.title("Saanvi Ravikiran's Professional Portfolio")
 
-# Sidebar navigation
-with st.sidebar:
-    selected = st.radio('Navigation', ['Home', 'Education', 'Experience', 'Certifications', 'Projects', 'Skills', 'Contact Information'])
+# Contact Information
+st.header("Contact Information")
+st.write("Email: saanvi.ravikiran@email.com")
+st.write("Phone: +123456789")
+st.write("LinkedIn: linkedin.com/in/saanviravikiran")
 
-# Define each section content
-def home():
-    st.title('Home')
-    st.write('Welcome to Saanvi Ravikiran portfolio website!')
-def education():
-    st.title('Education')
-    st.write('## Undergraduate')
-    st.write('Bachelor of Science in Computer Science, 2023, University Name')
-def experience():
-    st.title('Experience')
-    st.write('Software Engineering Intern at Tech Solutions, Summer 2022')
-def certifications():
-    st.title('Certifications')
-    st.write('Certified Data Scientist, Data Science Academy, 2023')
-def projects():
-    st.title('Projects')
-    st.write('Personal Portfolio Website, Real-time Chat Application')
-def skills():
-    st.title('Skills')
-    st.write('Programming Languages: Python, Java, JavaScript')
-def contact_info():
-    st.title('Contact Information')
-    st.write('Email: saanvi.r@example.com | Phone: (123) 456-7890')
+# Education
+st.header("Education")
+st.subheader("Bachelor of Science in Computer Science")
+st.write("University of Example, 2016 - 2020")
 
-# Mapping the navigation selection to the respective functions
-section_functions = {
-    'Home': home,
-    'Education': education,
-    'Experience': experience,
-    'Certifications': certifications,
-    'Projects': projects,
-    'Skills': skills,
-    'Contact Information': contact_info
-}
+# Work Experience
+st.header("Work Experience")
+st.subheader("Software Engineer")
+st.write("Tech Solutions Inc, Jan 2021 - Present")
+st.write("Developed scalable web applications using modern tech stacks.")
 
-# Invoke the function corresponding to the selected page
-section_functions[selected]()
+st.subheader("Junior Developer Intern")
+st.write("Innovatech, Jun 2020 - Dec 2020")
+st.write("Assisted in developing internal tools for company productivity.")
+
+# Certifications
+st.header("Certifications")
+st.write("Certified Kubernetes Administrator (CKA)")
+st.write("AWS Certified Solutions Architect")
+
+# Projects
+st.header("Projects")
+st.subheader("Portfolio Website")
+st.write("A personal portfolio showing projects and skills.")
+st.write("[GitHub Repository](https://github.com/saanviravikiran/portfolio)")
+
+# Skills
+st.header("Skills")
+st.write("Programming Languages: Python, JavaScript, C++")
+st.write("Frameworks: React, Streamlit, Flask")
+st.write("Tools: Docker, Kubernetes, AWS")
