@@ -1,43 +1,70 @@
-__updated__ = "Fri Jul 11 07:24:15 UTC 2025"
 import streamlit as st
 
-# Title
-st.title("Saanvi Ravikiran's Professional Portfolio")
+# Sidebar for navigation
+st.sidebar.title("Navigation")
+sections = ["Education", "Work Experience", "Certifications", "Projects", "Skills", "Contact Information"]
+selected_section = st.sidebar.radio("Go to", sections)
 
-# Contact Information
-st.header("Contact Information")
-st.write("Email: saanvi.ravikiran@email.com")
-st.write("Phone: +123456789")
-st.write("LinkedIn: linkedin.com/in/saanviravikiran")
+# Portfolio content from extracted markdown
+portfolio_content = {
+    "Education": """
+        ### Education
+        - **B-Tech in Data Science and Engineering**  
+          Manipal Institute of Technology, Manipal, 06/2022 - 06/2026
+        - **Elective - Marketing in a digital world**  
+          Manipal Institute of Technology, Manipal, 01/2025 - 05/2025
+        - **Elective - Digital Analytics for marketing**  
+          Manipal Institute of Technology, Manipal, 01/2025 - 05/2025
+    """,
+    "Work Experience": """
+        ### Work Experience
+        - **Financial analyst, PropertyVerse**  
+          11/2023 - 01/2024
+          A one-stop-shop for all Real Estate Investments - Fueling Fractional Ownership
+    """,
+    "Certifications": """
+        ### Certifications
+        - **Data Science - Mood Indigo, IIT Bombay (06/2024 - 07/2024)**
+          Structured approach to data analysis and visualization, providing hands-on experience with real-world datasets.
+        - **Ethical Hacking Essentials - EC Council (08/2024 - 09/2024)**
+          Key insights into ethical hacking, penetration testing, and identifying vulnerabilities.
+        - **Equity Markets Analyst - Finlatics (06/2023 - 08/2023)**
+          Private equity and portfolio optimization.
+        - **Investment Banking Analyst - Finlatics (06/2023 - 08/2023)**
+          Client profiling, private equity fund management, exit strategies, and venture capital analysis.
+    """,
+    "Projects": """
+        ### Projects
+        - **Aeturnum: Integrating Behavioral Modeling and Generative AI for Autonomous Cognitive Systems**
+          Personal project
+        - **Investigating the Influence of Continuance Intention and Intention to Recommend on User Engagement in Online Music Streaming Applications**
+        - **Image-Based Pneumonia Detection and Classification: Leveraging Deep Neural Networks for Medical Imaging**
+          Professional project
+    """,
+    "Skills": """
+        ### Skills
+        - Exploratory Data Analysis (EDA)
+        - Machine Learning
+        - Generative AI
+        - Neural Networks
+        - Programming Languages: Python, C++, Java, Hadoop, SQL, Excel
+        - Financial Analysis
+        - Ethical hacking
+        - Digital marketing
+    """,
+    "Contact Information": """
+        ### Contact Information
+        - **Email**: saanvi.ravikiran@gmail.com
+        - **Phone**: 9019525675
+        - **LinkedIn**: [linkedin.com/in/saanvi-ravikiran-8b6b791b4](https://linkedin.com/in/saanvi-ravikiran-8b6b791b4)
+    """
+}
 
-# Education
-st.header("Education")
-st.subheader("Bachelor of Science in Computer Science")
-st.write("University of Example, 2016 - 2020")
+st.title("Saanvi Ravikiran's Portfolio")
 
-# Work Experience
-st.header("Work Experience")
-st.subheader("Software Engineer")
-st.write("Tech Solutions Inc, Jan 2021 - Present")
-st.write("Developed scalable web applications using modern tech stacks.")
+if selected_section == "Home":
+    st.header("Welcome to my Portfolio!")
+    st.write("Use the navigation sidebar to explore various sections of my portfolio.")
 
-st.subheader("Junior Developer Intern")
-st.write("Innovatech, Jun 2020 - Dec 2020")
-st.write("Assisted in developing internal tools for company productivity.")
-
-# Certifications
-st.header("Certifications")
-st.write("Certified Kubernetes Administrator (CKA)")
-st.write("AWS Certified Solutions Architect")
-
-# Projects
-st.header("Projects")
-st.subheader("Portfolio Website")
-st.write("A personal portfolio showing projects and skills.")
-st.write("[GitHub Repository](https://github.com/saanviravikiran/portfolio)")
-
-# Skills
-st.header("Skills")
-st.write("Programming Languages: Python, JavaScript, C++")
-st.write("Frameworks: React, Streamlit, Flask")
-st.write("Tools: Docker, Kubernetes, AWS")
+else:
+    st.markdown(portfolio_content[selected_section])
