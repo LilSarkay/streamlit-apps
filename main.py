@@ -1,45 +1,28 @@
-__updated__ = "Fri Jul 11 06:45:10 UTC 2025"
 import streamlit as st
 
-st.set_page_config(page_title="Saanvi Ravikiran's Resume", layout='wide')
+st.title('Basic Calculator')
 
-# Sidebar navigation
-st.sidebar.title('Navigation')
-options = ['Education', 'Experience', 'Projects', 'Certifications', 'Skills', 'Contact']
-choice = st.sidebar.radio('Go to', options)
+number1 = st.number_input('Enter first number', value=0.0)
+number2 = st.number_input('Enter second number', value=0.0)
 
-# Define content for each section
-if choice == 'Education':
-    st.title("Education")
-    st.write("### Degree: Bachelor of Science in Computer Science")
-    st.write("- **Institution**: XYZ University")
-    st.write("- **Year**: 2020")
-    st.write("- **GPA**: 3.8/4.0")
+operation = st.selectbox('Select operation', ['Add', 'Subtract', 'Multiply', 'Divide'])
 
-elif choice == 'Experience':
-    st.title("Experience")
-    st.write("### Software Engineer")
-    st.write("- **Company**: ABC Tech")
-    st.write("- **Duration**: June 2020 - Present")
-    st.write("- Responsibilities include developing and maintaining web applications.")
+result = null
 
-elif choice == 'Projects':
-    st.title("Projects")
-    st.write("### Project: Automated Attendance System")
-    st.write("- Developed using Python and OpenCV for facial recognition.")
+try:
+    if operation == 'Add':
+        result = number1 + number2
+    elif operation == 'Subtract':
+        result = number1 - number2
+    elif operation == 'Multiply':
+        result = number1 * number2
+    elif operation == 'Divide':
+        if number2 != 0:
+            result = number1 / number2
+        else:
+            st.error('Error: Division by zero is not allowed.')
+except Exception as e:
+    st.error(f'An error occurred: {e}')
 
-elif choice == 'Certifications':
-    st.title("Certifications")
-    st.write("### Certified Data Scientist")
-    st.write("- **Issued by**: Data Science Authority")
-    st.write("- **Year**: 2021")
-
-elif choice == 'Skills':
-    st.title("Skills")
-    st.write("- Python, Java, SQL")
-    st.write("- Data Analysis, Machine Learning")
-
-elif choice == 'Contact':
-    st.title("Contact")
-    st.write("- **Email**: saanvi.email@example.com")
-    st.write("- **LinkedIn**: linkedin.com/in/saanviravikiran")
+if result is not null:
+    st.write('The result is:', result)
