@@ -1,1 +1,2 @@
-web: streamlit run main.py --server.port $PORT --server.enableCORS false
+web: streamlit run main.py --server.port $PORT --server.enableCORS false --server.enableXsrfProtection false
+
