@@ -1,39 +1,31 @@
-__updated__ = "Fri Jul 11 11:02:44 UTC 2025"
+# Import necessary library
 import streamlit as st
 
-def convert_units(amount, from_unit, to_unit):
-    conversion_factors = {
-        ('meters', 'kilometers'): 0.001,
-        ('kilometers', 'meters'): 1000,
-        ('feet', 'meters'): 0.3048,
-        ('meters', 'feet'): 1/0.3048,
-        ('miles', 'kilometers'): 1.60934,
-        ('kilometers', 'miles'): 1/1.60934,
-        # Add more conversions as needed
-    }
-    
-    factor = conversion_factors.get((from_unit, to_unit), null)
-    
-    if factor is null:
-        st.error(f"No conversion path exists from {from_unit} to {to_unit}.")
+# Conversion function: added error handling for unsupported conversions
+def convert_units(value, from_unit, to_unit):
+    try:
+        if from_unit == to_unit:
+            return value
+        elif from_unit == "meters" and to_unit == "kilometers":
+            return value / 1000
+        elif from_unit == "kilometers" and to_unit == "meters":
+            return value * 1000
+        # Placeholder for more conversion logic
+        else:
+            raise ValueError(f"Conversion from {from_unit} to {to_unit} is not supported.")
+    except Exception as e:
+        st.error(f"Error in conversion: {str(e)}")
         return null
-    else:
-        return amount * factor
 
-# Streamlit app logic
+# Streamlit app layout
 def main():
-    st.title('Unit Converter')
-    
-    amount = st.number_input('Enter the amount to convert:', value=0.0)
-    from_unit = st.selectbox('From Unit:', ['meters', 'kilometers', 'feet', 'miles'])
-    to_unit = st.selectbox('To Unit:', ['meters', 'kilometers', 'feet', 'miles'])
-    
-    converted_amount = convert_units(amount, from_unit, to_unit)
-    
-    if converted_amount is not null:
-        st.write(f'{amount} {from_unit} is equal to {converted_amount} {to_unit}')
-    else:
-        st.write('Conversion failed due to invalid conversion path.')
+    st.title("Unit Converter")
+    value = st.number_input("Enter the value to convert")
+    from_unit = st.selectbox("From unit", ["meters", "kilometers"])
+    to_unit = st.selectbox("To unit", ["meters", "kilometers"])
+    result = convert_units(value, from_unit, to_unit)
+    if result is not null:
+        st.success(f"The result is: {result}")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
