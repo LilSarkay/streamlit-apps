@@ -1,37 +1,46 @@
-__updated__ = "Fri Jul 11 07:20:25 UTC 2025"
 import streamlit as st
 
-# Sidebar Navigation
-st.sidebar.title('Navigation')
-sections = ['Home', 'Education', 'Experience', 'Projects', 'Skills', 'Contact']
-section = st.sidebar.radio('Go to', sections)
+# Set the title of the app
+st.set_page_config(page_title='Saanvi Ravikiran Portfolio')
 
-# Home Section
-if section == 'Home':
-    st.title("Saanvi Ravikiran's Portfolio")
-    st.write("Welcome to the portfolio of Saanvi Ravikiran!")
+# Sidebar navigation
+with st.sidebar:
+    selected = st.radio('Navigation', ['Home', 'Education', 'Experience', 'Certifications', 'Projects', 'Skills', 'Contact Information'])
 
-# Education Section
-elif section == 'Education':
+# Define each section content
+def home():
+    st.title('Home')
+    st.write('Welcome to Saanvi Ravikiran portfolio website!')
+def education():
     st.title('Education')
-    st.write("Details about Saanvi's education.")
-
-# Experience Section
-elif section == 'Experience':
+    st.write('## Undergraduate')
+    st.write('Bachelor of Science in Computer Science, 2023, University Name')
+def experience():
     st.title('Experience')
-    st.write("Professional experiences and roles held by Saanvi.")
-
-# Projects Section
-elif section == 'Projects':
+    st.write('Software Engineering Intern at Tech Solutions, Summer 2022')
+def certifications():
+    st.title('Certifications')
+    st.write('Certified Data Scientist, Data Science Academy, 2023')
+def projects():
     st.title('Projects')
-    st.write("Projects undertaken by Saanvi and their descriptions.")
-
-# Skills Section
-elif section == 'Skills':
+    st.write('Personal Portfolio Website, Real-time Chat Application')
+def skills():
     st.title('Skills')
-    st.write("A list of Saanvi's skills.")
+    st.write('Programming Languages: Python, Java, JavaScript')
+def contact_info():
+    st.title('Contact Information')
+    st.write('Email: saanvi.r@example.com | Phone: (123) 456-7890')
 
-# Contact Section
-elif section == 'Contact':
-    st.title('Contact')
-    st.write("Contact information for Saanvi.")
+# Mapping the navigation selection to the respective functions
+section_functions = {
+    'Home': home,
+    'Education': education,
+    'Experience': experience,
+    'Certifications': certifications,
+    'Projects': projects,
+    'Skills': skills,
+    'Contact Information': contact_info
+}
+
+# Invoke the function corresponding to the selected page
+section_functions[selected]()
