@@ -1,31 +1,23 @@
-__updated__ = "Fri Jul 11 07:15:16 UTC 2025"
 import streamlit as st
 
-def calculator():
-    st.title("Basic Calculator")
-    
-    # Input fields for numbers
-    num1 = st.number_input("Enter first number:")
-    num2 = st.number_input("Enter second number:")
-    
-    # Dropdown for operation selection
-    operation = st.selectbox("Select Operation", ("Add", "Subtract", "Multiply", "Divide"))
-    result = null
+st.title('Basic Calculator')
 
-    if st.button("Calculate"):
-        if operation == "Add":
-            result = num1 + num2
-        elif operation == "Subtract":
-            result = num1 - num2
-        elif operation == "Multiply":
-            result = num1 * num2
-        elif operation == "Divide":
-            if num2 != 0:
-                result = num1 / num2
-            else:
-                st.error("Cannot divide by zero")
-        
-        st.success(f'The result is: {result}')
+num1 = st.number_input('Enter first number:', value=0)
+num2 = st.number_input('Enter second number:', value=0)
+operation = st.selectbox('Select operation', ('Add', 'Subtract', 'Multiply', 'Divide'))
 
-if __name__ == '__main__':
-    calculator()
+if operation == 'Add':
+    result = num1 + num2
+elif operation == 'Subtract':
+    result = num1 - num2
+elif operation == 'Multiply':
+    result = num1 * num2
+elif operation == 'Divide':
+    if num2 != 0:
+        result = num1 / num2
+    else:
+        result = 'Infinity'
+else:
+    result = 'Invalid Operation'
+
+st.write('Result:', result)
