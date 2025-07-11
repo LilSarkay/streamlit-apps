@@ -1,24 +1,36 @@
-__updated__ = "Fri Jul 11 07:17:25 UTC 2025"
 import streamlit as st
 
-st.title('Basic Calculator')
+# Sidebar Navigation
+st.sidebar.title('Navigation')
+sections = ['Home', 'Education', 'Experience', 'Projects', 'Skills', 'Contact']
+section = st.sidebar.radio('Go to', sections)
 
-num1 = st.number_input('Enter first number:', value=0)
-num2 = st.number_input('Enter second number:', value=0)
-operation = st.selectbox('Select operation', ('Add', 'Subtract', 'Multiply', 'Divide'))
+# Home Section
+if section == 'Home':
+    st.title("Saanvi Ravikiran's Portfolio")
+    st.write("Welcome to the portfolio of Saanvi Ravikiran!")
 
-if operation == 'Add':
-    result = num1 + num2
-elif operation == 'Subtract':
-    result = num1 - num2
-elif operation == 'Multiply':
-    result = num1 * num2
-elif operation == 'Divide':
-    if num2 != 0:
-        result = num1 / num2
-    else:
-        result = 'Infinity'
-else:
-    result = 'Invalid Operation'
+# Education Section
+elif section == 'Education':
+    st.title('Education')
+    st.write("Details about Saanvi's education.")
 
-st.write('Result:', result)
+# Experience Section
+elif section == 'Experience':
+    st.title('Experience')
+    st.write("Professional experiences and roles held by Saanvi.")
+
+# Projects Section
+elif section == 'Projects':
+    st.title('Projects')
+    st.write("Projects undertaken by Saanvi and their descriptions.")
+
+# Skills Section
+elif section == 'Skills':
+    st.title('Skills')
+    st.write("A list of Saanvi's skills.")
+
+# Contact Section
+elif section == 'Contact':
+    st.title('Contact')
+    st.write("Contact information for Saanvi.")
