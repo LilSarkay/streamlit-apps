@@ -1,31 +1,38 @@
-__updated__ = "Fri Jul 11 10:54:16 UTC 2025"
 import streamlit as st
 
-st.title('Unit Converter')
-
-# Dictionary to convert units
-conversion_factors = {
-    ('meters', 'kilometers'): 0.001,
-    ('kilometers', 'meters'): 1000,
-    ('grams', 'kilograms'): 0.001,
-    ('kilograms', 'grams'): 1000,
-}
-
-# User inputs
-from_unit = st.selectbox('From', ['meters', 'kilometers', 'grams', 'kilograms'])
-to_unit = st.selectbox('To', ['meters', 'kilometers', 'grams', 'kilograms'])
-value = st.number_input('Value', min_value=0.0, value=0.0)
-
-# Conversion function
-def convert_units(from_unit, to_unit, value):
-    factor = conversion_factors.get((from_unit, to_unit))
+def convert_units(amount, from_unit, to_unit):
+    conversion_factors = {
+        ('meters', 'kilometers'): 0.001,
+        ('kilometers', 'meters'): 1000,
+        ('feet', 'meters'): 0.3048,
+        ('meters', 'feet'): 1/0.3048,
+        ('miles', 'kilometers'): 1.60934,
+        ('kilometers', 'miles'): 1/1.60934,
+        # Add more conversions as needed
+    }
+    
+    factor = conversion_factors.get((from_unit, to_unit), null)
+    
     if factor is null:
-        st.error('Conversion not possible')
+        st.error(f"No conversion path exists from {from_unit} to {to_unit}.")
         return null
-    return value * factor
+    else:
+        return amount * factor
 
-# Perform conversion if button is clicked
-if st.button('Convert'):
-    result = convert_units(from_unit, to_unit, value)
-    if result is not null:
-        st.success(f'{value} {from_unit} = {result} {to_unit}')
+# Streamlit app logic
+def main():
+    st.title('Unit Converter')
+    
+    amount = st.number_input('Enter the amount to convert:', value=0.0)
+    from_unit = st.selectbox('From Unit:', ['meters', 'kilometers', 'feet', 'miles'])
+    to_unit = st.selectbox('To Unit:', ['meters', 'kilometers', 'feet', 'miles'])
+    
+    converted_amount = convert_units(amount, from_unit, to_unit)
+    
+    if converted_amount is not null:
+        st.write(f'{amount} {from_unit} is equal to {converted_amount} {to_unit}')
+    else:
+        st.write('Conversion failed due to invalid conversion path.')
+
+if __name__ == '__main__':
+    main()
