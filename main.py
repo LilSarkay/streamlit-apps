@@ -1,2 +1,25 @@
-__updated__ = "Fri Jul 11 10:39:51 UTC 2025"
-import streamlit as st\n\n# Streamlit App Title\nst.title('Basic Calculator')\n\n# Input Fields\nnumber1 = st.number_input('Enter first number', value=0.0)\nnumber2 = st.number_input('Enter second number', value=0.0)\n\n# Operation Dropdown\noperation = st.selectbox('Select an operation', ('+', '-', '*', '/'))\n\n# Calculate Button\nif st.button('Calculate'):\n    if operation == '+':\n        result = number1 + number2\n    elif operation == '-':\n        result = number1 - number2\n    elif operation == '*':\n        result = number1 * number2\n    elif operation == '/':\n        if number2 != 0:\n            result = number1 / number2\n        else:\n            st.error('Division by zero is undefined.')\n            result = null\n    if result is not null:\n        st.success(f'Result: {result}')
+import streamlit as st
+
+def calculate(num1, num2, operation):
+    if operation == 'Add':
+        return num1 + num2
+    elif operation == 'Subtract':
+        return num1 - num2
+    elif operation == 'Multiply':
+        return num1 * num2
+    elif operation == 'Divide':
+        try:
+            return num1 / num2
+        except ZeroDivisionError:
+            return 'Error: Division by zero'
+
+st.title('Basic Calculator')
+
+num1 = st.number_input('Enter the first number', format='%f')
+num2 = st.number_input('Enter the second number', format='%f')
+
+operation = st.selectbox('Select operation', ('Add', 'Subtract', 'Multiply', 'Divide'))
+
+if st.button('Calculate'):
+    result = calculate(num1, num2, operation)
+    st.write(f'The result is: {result}')
