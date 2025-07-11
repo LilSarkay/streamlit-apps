@@ -1,44 +1,26 @@
-__updated__ = "Fri Jul 11 10:14:12 UTC 2025"
 import streamlit as st
 
-# App Title
-st.title('User Portfolio')
+# Title of the app
+st.title("Basic Calculator")
 
-# Sidebar Navigation
-st.sidebar.title('Navigation')
+# Number inputs
+a = st.number_input("Enter the first number:", value=0)
+b = st.number_input("Enter the second number:", value=0)
 
-pages = ['Home', 'Experience', 'Education', 'Projects', 'Contact']
+# Dropdown for selecting operation
+operation = st.selectbox("Choose an operation:", ["Add", "Subtract", "Multiply", "Divide"])
 
-selection = st.sidebar.radio('Go to', pages)
+# Perform button
+def calculate(a, b, operation):
+    if operation == "Add":
+        return a + b
+    elif operation == "Subtract":
+        return a - b
+    elif operation == "Multiply":
+        return a * b
+    elif operation == "Divide":
+        return a / b if b != 0 else "Infinity"
 
-# Page Contents
-def home():
-    st.write('Welcome to the User Portfolio Application. Navigate using the sidebar.')
-
-def experience():
-    st.header('Experience')
-    st.write('Here is a detailed list of experiences.')
-    
-def education():
-    st.header('Education')
-    st.write('Here is a detailed list of educational qualifications.')
-
-def projects():
-    st.header('Projects')
-    st.write('Here is a list of projects.')
-    
-def contact():
-    st.header('Contact')
-    st.write('Contact information here.')
-    
-# Render selected page
-if selection == 'Home':
-    home()
-elif selection == 'Experience':
-    experience()
-elif selection == 'Education':
-    education()
-elif selection == 'Projects':
-    projects()
-elif selection == 'Contact':
-    contact()
+if st.button("Perform"):
+    result = calculate(a, b, operation)
+    st.write(f"The result is: {result}")
